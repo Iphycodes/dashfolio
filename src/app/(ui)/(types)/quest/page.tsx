@@ -1,8 +1,15 @@
 'use client';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { WithLoaderRender } from '@/_shared/components/with-app-loder';
-import { questPopulation, questUrl, tagsUrl, typesUrl } from '@/_shared/constants';
-import { fetchData } from '@/_shared/helpers';
+import {
+  fetchByQuestidsUrl,
+  questPopulation,
+  questPopulationString,
+  questUrl,
+  tagsUrl,
+  typesUrl,
+} from '@/_shared/constants';
+import { fetchData, postData } from '@/_shared/helpers';
 import Quest from '@/components/types/single';
 import { usePagination } from '@/hooks/usePagination';
 import { useSearch } from '@/hooks/useSearch';
@@ -12,10 +19,13 @@ import React, { useEffect, useState } from 'react';
 
 const QuestPage = () => {
   const [questData, setQuestData] = useState<Record<string, any>[]>([]);
+  const [comparisonQuestData, setComparisonQuestData] = useState<Record<string, any>[]>([]);
   const isMobile = useMediaQuery(mediaSize.mobile);
   const [isQuestLoading, setIsQuestLoading] = useState<boolean>(false);
   const [isLoadingPromoteItem, setIsLoadingPromoteItem] = useState<boolean>(false);
-  const { paginate, pagination, setPaginate, setTotal } = usePagination({
+  const [isLoadingGetComparisonData, setIsLoadingGetComparisonData] = useState<boolean>(false);
+
+  const { paginate, pagination, setTotal } = usePagination({
     key: 'quest',
     title: 'quests',
     perPage: 10,
@@ -24,6 +34,8 @@ const QuestPage = () => {
   const [typesOptions, setTypesOptions] = useState<Record<string, any>[]>([]);
   const [filterData, setFilterData] = useState<Record<string, any>>({});
   const { searchValue, debouncedChangeHandler } = useSearch();
+  const [questServiceUrl, setQuestServiceUrl] = useState<'game' | 'api'>('api');
+  const [questEnvUrl, setQuestEnvUrl] = useState<'dev' | 'proj' | 'prod'>('dev');
 
   const requestHeader = {
     redirect: 'follow',
@@ -33,7 +45,7 @@ const QuestPage = () => {
     ...paginate,
     ...filterData,
     search: searchValue,
-    population: questPopulation,
+    population: questPopulationString,
   };
 
   useEffect(() => {
@@ -77,7 +89,6 @@ const QuestPage = () => {
   useEffect(() => {
     fetchData(tagsUrl)
       .then((data: any) => {
-        console.log('taggssss', data);
         handleSetTagOptions(data?.data ?? []);
       })
       .catch(() => {
@@ -86,7 +97,6 @@ const QuestPage = () => {
 
     fetchData(typesUrl)
       .then((data: any) => {
-        console.log('typessssssss', data);
         handleSetTypesOptions(data?.QuestTypes ?? []);
       })
       .catch(() => {
@@ -114,10 +124,35 @@ const QuestPage = () => {
     //   });
   };
 
+  const handleGetComparisonData = (ids: string[]) => {
+    setIsLoadingGetComparisonData(true);
+
+    const payload = {
+      ids: ids,
+      population: questPopulation,
+    };
+
+    const updatedFetchByIdsUrl = `https://${questServiceUrl}-stm-${questEnvUrl}.stardevs.xyz/v1/quest/fetch-by-quest-ids`;
+
+    postData(updatedFetchByIdsUrl, {}, payload)
+      .then((res) => {
+        console.log('fetch-by-ids', res);
+        setComparisonQuestData(res?.data ?? []);
+        setIsLoadingGetComparisonData(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        message.error(err?.message ?? 'Could not fetch data', 10);
+        setComparisonQuestData([]);
+        setIsLoadingGetComparisonData(false);
+      });
+  };
+
   return (
     <WithLoaderRender loading={false} theme="light" mobileResponsive={isMobile}>
       <Quest
         questData={questData}
+        comparisonQuestData={comparisonQuestData}
         isLoadingQuestData={isQuestLoading}
         handlePromoteItem={handlePromoteItem}
         isLoadingPromoteItem={isLoadingPromoteItem}
@@ -128,6 +163,12 @@ const QuestPage = () => {
         setFilterData={setFilterData}
         filterData={filterData}
         debouncedChangeHandler={debouncedChangeHandler}
+        handleGetComparisonData={handleGetComparisonData}
+        setQuestEnvUrl={setQuestEnvUrl}
+        setQuestServiceUrl={setQuestServiceUrl}
+        questEnvUrl={questEnvUrl}
+        questServiceUrl={questServiceUrl}
+        isLoadingGetComparisonData={isLoadingGetComparisonData}
       />
     </WithLoaderRender>
   );

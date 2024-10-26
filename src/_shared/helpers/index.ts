@@ -28,6 +28,34 @@ export async function fetchData(
   }
 }
 
+export const numberFormat = (value: number | bigint, currency?: string) => {
+  const formatter = new Intl.NumberFormat();
+  return currency ? currency + formatter.format(value) : formatter.format(value);
+};
+
+export const formatNumber = (num: number, precision: number = 2): string | number => {
+  const map = [
+    { suffix: 'T', threshold: 1e12 },
+    { suffix: 'B', threshold: 1e9 },
+    { suffix: 'M', threshold: 1e6 },
+    { suffix: 'K', threshold: 1e3 },
+    { suffix: '', threshold: 1 },
+  ];
+
+  const found = map.find((x) => Math.abs(num) >= x.threshold);
+
+  if (found) {
+    if (num < 1000) {
+      const formatted = (num / found.threshold).toFixed(0) + found.suffix;
+      return formatted;
+    }
+    const formatted = (num / found.threshold).toFixed(precision) + found.suffix;
+    return formatted;
+  }
+
+  return num;
+};
+
 export const camelCaseToSentence = (camelCaseString: string) => {
   // const words = camelCaseString.split(/(?=[A-Z])/);
   // const capitalizedWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1));

@@ -65,7 +65,7 @@ export const sampleData = [
   },
 ];
 
-export const questPopulation = JSON.stringify([
+export const questPopulation = [
   {
     path: 'objectives',
     populate: [
@@ -99,9 +99,11 @@ export const questPopulation = JSON.stringify([
     ],
   },
   {
-    path: 'tags'
-  }
-]);
+    path: 'tags',
+  },
+];
+
+export const questPopulationString = JSON.stringify(questPopulation);
 
 export const baseUrl = `https://api-stm-dev.stardevs.xyz/v1`;
 // export const baseUrl = `https://startdev.ngrok.app/v1`;
@@ -110,6 +112,7 @@ export const migrationsUrl = `${baseUrl}/migrations`;
 export const tagsUrl = `${baseUrl}/tags`;
 export const typesUrl = `${baseUrl}/constants`;
 export const promoteItemUrl = `${baseUrl}/migrations/push`;
+export const fetchByQuestidsUrl = `${baseUrl}/quest/fetch-by-quest-ids`;
 
 export const environmentOptions = [
   { label: 'Development', value: 'dev' },

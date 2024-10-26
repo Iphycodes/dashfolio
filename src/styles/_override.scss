@@ -211,6 +211,55 @@
       background 0s;
   }
 
+  .ant-table {
+    background-color: transparent !important;
+    color: #cccccc !important;
+
+    .ant-table-thead {
+      th {
+        background: #000000 !important;
+
+        span {
+          color: #ffffff !important;
+        }
+
+        &::before,
+        ::after {
+          display: none !important;
+        }
+      }
+    }
+
+    .ant-table-cell {
+      border-top: 1px solid rgb(32, 32, 32) !important;
+      border-bottom: 1px solid rgb(32, 32, 32) !important;
+    }
+
+    .ant-table-cell-row-hover {
+      background-color: transparent !important;
+    }
+  }
+
+  .ant-table-pagination {
+    color: #ffffff !important;
+
+    .ant-pagination-item-link {
+      color: #ffffff !important;
+    }
+
+    .ant-pagination-item {
+      background: transparent !important;
+
+      a {
+        color: #ffffff !important;
+      }
+    }
+
+    .ant-pagination-item-active {
+      border: 1px solid #2f83f8 !important;
+    }
+  }
+
   .ant-menu-item {
     color: #cccccc !important;
 
@@ -235,9 +284,10 @@
   }
 
   .ant-message-notice-content {
-    border: 1px solid #101010 !important;
-    background-color: #09090b !important;
+    border: 1px solid #303030 !important;
+    background-color: #000000 !important;
     color: #ffffff !important;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4) !important;
   }
 }
 
@@ -278,47 +328,95 @@
   }
 }
 
-.ant-message {
-  top: auto !important; /* Disable the default top positioning */
-  bottom: 24px; /* Position 24px from the bottom */
-  right: 24px; /* Position 24px from the right */
-  left: auto !important; /* Disable the default left positioning */
-  position: fixed !important; /* Ensure it is fixed at the bottom-right corner */
-  width: auto !important;
-  transform: translateX(0) !important;
-}
+// .ant-message {
+//   top: auto !important; /* Disable the default top positioning */
+//   bottom: 24px; /* Position 24px from the bottom */
+//   right: 24px; /* Position 24px from the right */
+//   left: auto !important; /* Disable the default left positioning */
+//   position: fixed !important; /* Ensure it is fixed at the bottom-right corner */
+//   width: auto !important;
+//   transform: translateX(0) !important;
+// }
 
-.ant-message-notice-content {
-  padding: 15px 20px !important;
-}
+// .ant-message-notice-content {
+//   padding: 15px 20px !important;
+// }
 
-.ant-message-move-up-enter,
-.ant-message-move-up-appear {
-  transform: translateX(0) translateY(100%) !important; /* Start from below the screen */
-  opacity: 0 !important;
-}
+// .ant-message-move-up-enter,
+// .ant-message-move-up-appear {
+//   transform: translateX(0) translateY(100%) !important; /* Start from below the screen */
+//   opacity: 0 !important;
+// }
 
-.ant-message-move-up-enter-active,
-.ant-message-move-up-appear-active {
-  transform: translateX(0) translateY(0) !important; /* End at the bottom */
-  opacity: 1 !important;
-  transition:
-    transform 0.3s ease-in-out,
-    opacity 0.3s ease-in-out !important;
-}
+// .ant-message-move-up-enter-active,
+// .ant-message-move-up-appear-active {
+//   transform: translateX(0) translateY(0) !important; /* End at the bottom */
+//   opacity: 1 !important;
+//   transition:
+//     transform 0.3s ease-in-out,
+//     opacity 0.3s ease-in-out !important;
+// }
 
-.ant-message-move-up-leave-active {
-  transform: translateX(0) translateY(100%) !important; /* Slide down when disappearing */
-  opacity: 0 !important;
-  transition:
-    transform 0.3s ease-in-out,
-    opacity 0.3s ease-in-out !important;
-}
+// .ant-message-move-up-leave-active {
+//   transform: translateX(0) translateY(100%) !important; /* Slide down when disappearing */
+//   opacity: 0 !important;
+//   transition:
+//     transform 0.3s ease-in-out,
+//     opacity 0.3s ease-in-out !important;
+// }
 
 .quest-tag-select {
   .ant-select-selection-overflow {
     flex-wrap: nowrap !important;
     overflow-x: scroll !important;
     scrollbar-width: none !important;
+  }
+}
+
+.next-arrow {
+  position: absolute !important;
+  top: -60px !important;
+
+  @media (max-width: 600px) {
+    top: -40px !important;
+  }
+  right: 0px !important;
+}
+
+.prev-arrow {
+  position: absolute !important;
+  top: -60px !important;
+
+  right: 50px !important;
+
+  @media (max-width: 600px) {
+    top: -40px !important;
+    right: 40px !important;
+  }
+}
+
+.slick-list {
+  margin: 0 !important; /* Ensure no margin on the list */
+}
+
+.slick-track {
+  display: flex !important; /* Ensure the track uses flexbox */
+  align-items: flex-start !important; /* Align items to the start */
+  margin: 0 !important;
+}
+
+.transaction-table {
+  .ant-table-tbody {
+    .ant-table-row {
+      cursor: pointer !important;
+
+      .ant-table-cell {
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 400 !important;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+      }
+    }
   }
 }

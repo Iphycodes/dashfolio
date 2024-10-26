@@ -1,6 +1,8 @@
 import '@/styles/globals.css';
 import '@/styles/_override.scss';
 import 'remixicon/fonts/remixicon.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import type { Metadata, Viewport } from 'next';
 import { Nunito } from 'next/font/google';
 import { AntdRegistry } from '@ant-design/nextjs-registry';

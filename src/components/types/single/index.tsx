@@ -1,13 +1,15 @@
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import DataTree from './lib/custom-quest-tree';
-import { Card, Input, Modal, Pagination, Select, Skeleton, Tooltip } from 'antd';
+import { Card, Input, Modal, Pagination, Select, Tooltip } from 'antd';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import PromoteItemModal from './lib/promote-item-modal';
 import { Pagination as PaginationType } from '@/_shared/namespace';
 import { isEmpty, omit } from 'lodash';
+import MigrateItemModal from './lib/migrate-item-modal';
 
 interface QuestProps {
   questData: Record<string, any>[];
+  comparisonQuestData: Record<string, any>[];
   isLoadingQuestData: boolean;
   handlePromoteItem: (values: Record<string, any>) => void;
   isLoadingPromoteItem: boolean;
@@ -18,10 +20,17 @@ interface QuestProps {
   setFilterData: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   filterData: Record<string, any>;
   debouncedChangeHandler: (e: string) => void;
+  handleGetComparisonData: (ids: string[]) => void;
+  setQuestServiceUrl: React.Dispatch<React.SetStateAction<'api' | 'game'>>;
+  setQuestEnvUrl: React.Dispatch<React.SetStateAction<'dev' | 'prod' | 'proj'>>;
+  questEnvUrl: 'dev' | 'prod' | 'proj';
+  questServiceUrl: 'api' | 'game';
+  isLoadingGetComparisonData: boolean;
 }
 
 const Quest = ({
   questData,
+  comparisonQuestData,
   isLoadingQuestData,
   handlePromoteItem,
   isLoadingPromoteItem,
@@ -31,6 +40,12 @@ const Quest = ({
   setFilterData,
   filterData,
   debouncedChangeHandler,
+  handleGetComparisonData,
+  setQuestServiceUrl,
+  setQuestEnvUrl,
+  questEnvUrl,
+  questServiceUrl,
+  isLoadingGetComparisonData,
 }: QuestProps) => {
   const [isPromteModalOpen, setIsPromoteModalOpen] = useState<boolean>(false);
   const [isMigrateModalOpen, setIsMigrateModalOpen] = useState<boolean>(false);
@@ -45,8 +60,10 @@ const Quest = ({
   };
 
   useEffect(() => {
-    console.log('inner types', typesOptions);
-  }, [typesOptions]);
+    console.log('service or environment changed to::', questServiceUrl);
+    const ids = questData?.map((quest) => quest?._id);
+    handleGetComparisonData(ids);
+  }, [questData, questEnvUrl, questServiceUrl]);
 
   // const sampleData = {
   //   id: 1,
@@ -168,15 +185,21 @@ const Quest = ({
       </div>
 
       <Card className="shadow-sm border-neutral-200 dark:border-neutral-600">
-        <Skeleton loading={isLoadingQuestData} active={true} title={false} paragraph={{ rows: 10 }}>
-          <DataTree
-            data={questData}
-            setCurrentQuestData={setCurrentQuestData}
-            setIsPromoteModalOpen={setIsPromoteModalOpen}
-            currentMode={currentMode}
-            setCurrentMode={setCurrentMode}
-          />
-        </Skeleton>
+        <DataTree
+          data={questData}
+          comparisonQuestData={comparisonQuestData}
+          setCurrentQuestData={setCurrentQuestData}
+          setIsPromoteModalOpen={setIsPromoteModalOpen}
+          currentMode={currentMode}
+          setCurrentMode={setCurrentMode}
+          setQuestEnvUrl={setQuestEnvUrl}
+          setQuestServiceUrl={setQuestServiceUrl}
+          isLoadingGetComparisonData={isLoadingGetComparisonData}
+          isLoadingQuestData={isLoadingQuestData}
+          setIsMigrateItemModalOpen={setIsMigrateModalOpen}
+          environment={questEnvUrl}
+          service={questServiceUrl}
+        />
 
         <div className="mt-3">
           <Pagination
@@ -217,10 +240,12 @@ const Quest = ({
           footer={null}
           closable
         >
-          <PromoteItemModal
+          <MigrateItemModal
             item={currentQuestData}
             handlePromoteItem={handlePromoteItem}
             isLoadingPromoteItem={isLoadingPromoteItem}
+            environment={questEnvUrl}
+            service={questServiceUrl}
           />
         </Modal>
       </Card>

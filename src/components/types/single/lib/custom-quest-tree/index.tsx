@@ -1,16 +1,12 @@
 // components/DataTree.js
-import React from 'react';
-import { Button, Col, Row, Select, Tree } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { Button, Col, Modal, Row, Select, Skeleton, Tree } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { lowerCase, omit } from 'lodash';
+import { isEmpty, lowerCase, omit } from 'lodash';
 import { camelCaseToSentence } from '@/_shared/helpers';
 import dayjs from 'dayjs';
-import {
-  environmentOptions,
-  mockShortQuestData,
-  mockShortQuestDataSecond,
-  serviceOptions,
-} from '@/_shared/constants';
+import { environmentOptions, mockShortQuestData, serviceOptions } from '@/_shared/constants';
+import { NoDataIcon } from '@/_shared/assets/svg';
 
 export interface TreeNode {
   title: string;
@@ -34,8 +30,16 @@ interface DataTreeInterface {
   data: Record<string, any>[];
   setCurrentQuestData: React.Dispatch<React.SetStateAction<Record<string, any>>>;
   setIsPromoteModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsMigrateItemModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   currentMode: 'compare' | 'default';
   setCurrentMode: React.Dispatch<React.SetStateAction<'compare' | 'default'>>;
+  comparisonQuestData: Record<string, any>[];
+  setQuestServiceUrl: React.Dispatch<React.SetStateAction<'api' | 'game'>>;
+  setQuestEnvUrl: React.Dispatch<React.SetStateAction<'dev' | 'prod' | 'proj'>>;
+  isLoadingGetComparisonData: boolean;
+  isLoadingQuestData: boolean;
+  environment: 'dev' | 'prod' | 'proj';
+  service: 'api' | 'game';
 }
 
 const DataTree = ({
@@ -43,7 +47,21 @@ const DataTree = ({
   setCurrentQuestData,
   setIsPromoteModalOpen,
   currentMode,
+  comparisonQuestData,
+  setQuestEnvUrl,
+  setQuestServiceUrl,
+  isLoadingGetComparisonData,
+  isLoadingQuestData,
+  environment,
+  service,
 }: DataTreeInterface) => {
+  const [comparisonResult, setComparisonResult] = useState<
+    Record<'firstResult' | 'secondResult', any[]> & { difference: number }
+  >({
+    firstResult: [],
+    secondResult: [],
+    difference: 0,
+  });
   const handlePromoteItemButtonClick = (questData: Record<string, any>) => {
     setCurrentQuestData(questData);
     setIsPromoteModalOpen(true);
@@ -196,29 +214,11 @@ const DataTree = ({
     first: any[],
     second: any[]
   ): { firstResult: any[]; secondResult: any[]; arrDifferences: number } {
-    let differences = 0; // Keep track of the number of differences found
-
-    // Count differences between the two arrays
-    // function getDifference(fArr: any[], sArr: any[]) {
-    //   fArr.forEach((fItem, index) => {
-    //     const sItem = sArr[index];
-
-    //     // Handle case when one array has more items than the other
-    //     if (!sItem) return;
-
-    //     // Compare titles
-    //     if (fItem.title !== sItem.title) {
-    //       differences++;
-    //     }
-
-    //     // Recursively check for children if both have them and they are arrays
-    //     if (Array.isArray(fItem.children) && Array.isArray(sItem.children)) {
-    //       getDifference(fItem.children, sItem.children);
-    //     }
-    //   });
-    // }
+    let differences = 0;
 
     function getDifference(fArr: any[], sArr: any[]) {
+      // let differences = 0;
+
       if (fArr.length !== sArr.length) {
         differences += Math.abs(fArr.length - sArr.length); // Count the difference in length
       }
@@ -239,6 +239,8 @@ const DataTree = ({
           getDifference(fItem.children, sItem.children);
         }
       });
+
+      // return differences;
     }
 
     function deepCompareAndHighlight(
@@ -357,24 +359,39 @@ const DataTree = ({
     // First, count the differences
     getDifference(first, second);
 
+    // const arrayDiff = getDifference(first, second);
+
     // Then, highlight the differences in the arrays
     const { updatedFirstResult, updatedSecondResult } = deepCompareAndHighlight(first, second);
 
     return {
       firstResult: updatedFirstResult,
       secondResult: updatedSecondResult,
-      arrDifferences: differences,
+      arrDifferences: differences - first?.length,
     };
   }
 
-  const { firstResult, secondResult, arrDifferences } = compareAndHighlightArrays(
-    convertToTreeData(omitProperties(mockShortQuestData), '0', 'quest', currentMode),
-    convertToTreeData(omitProperties(mockShortQuestDataSecond), '0', 'quest', currentMode)
-  );
-
   // const { firstResult, secondResult, arrDifferences } = compareAndHighlightArrays(
+  //   convertToTreeData(omitProperties(mockShortQuestData), '0', 'quest', currentMode),
+  //   convertToTreeData(omitProperties(mockShortQuestDataSecond), '0', 'quest', currentMode)
+  // );
+
+  useEffect(() => {
+    const { arrDifferences, firstResult, secondResult } = compareAndHighlightArrays(
+      convertToTreeData(omitProperties(data), '0', 'quest', currentMode),
+      convertToTreeData(omitProperties(comparisonQuestData), '0', 'quest', currentMode)
+    );
+
+    setComparisonResult({
+      firstResult: firstResult,
+      secondResult: secondResult,
+      difference: arrDifferences,
+    });
+  }, [data, comparisonQuestData, currentMode]);
+
+  // const { arrDifferences } = compareAndHighlightArrays(
   //   convertToTreeData(omitProperties(data), '0', 'quest', currentMode),
-  //   convertToTreeData(omitProperties(data), '0', 'quest', currentMode)
+  //   convertToTreeData(omitProperties(comparisonQuestData), '0', 'quest', currentMode)
   // );
 
   console.log(
@@ -382,17 +399,48 @@ const DataTree = ({
     convertToTreeData(omitProperties(mockShortQuestData), '0', 'quest', currentMode)
   );
 
+  const handleSetQuestServiceUrl = (service: 'api' | 'game') => {
+    console.log('serviceeee', service);
+    setQuestServiceUrl(service);
+  };
+
+  const handleMigrateChanges = () => {
+    const changesCount = compareAndHighlightArrays(
+      convertToTreeData(omitProperties(data), '0', 'quest', currentMode),
+      convertToTreeData(omitProperties(comparisonQuestData), '0', 'quest', currentMode)
+    ).arrDifferences;
+    Modal.confirm({
+      title: <span className="text-[20px] font-bold">Confirm Migration</span>,
+      content: (
+        <div className="flex flex-col gap-4 text-[16px]">
+          <div>{`Are you sure you want to migrate ${changesCount} changes to the following location`}</div>
+          <div className="flex flex-col gap-1">
+            <span>{`Environment: ${environment}`}</span>
+            <span>{`Service: ${service}`}</span>
+          </div>
+        </div>
+      ),
+      okText: 'Yes',
+      cancelText: 'No',
+      onOk: () => {
+        //perform migration
+      },
+    });
+  };
+
   return (
     <>
       {currentMode === 'default' && (
-        <Tree
-          showLine
-          switcherIcon={<DownOutlined />}
-          defaultExpandAll={false}
-          treeData={treeData ?? []}
-          // style={{ display: currentMode !== 'default' ? 'none' : 'block' }} a nsd gbfdsh d dfbkahf
-          className="text-[16px]"
-        />
+        <Skeleton loading={isLoadingQuestData} active={true} title={false} paragraph={{ rows: 10 }}>
+          <Tree
+            showLine
+            switcherIcon={<DownOutlined />}
+            defaultExpandAll={false}
+            treeData={treeData ?? []}
+            // style={{ display: currentMode !== 'default' ? 'none' : 'block' }} a nsd gbfdsh d dfbkahf
+            className="text-[16px]"
+          />
+        </Skeleton>
       )}
       {currentMode === 'compare' && (
         <div>
@@ -408,6 +456,9 @@ const DataTree = ({
                     options={environmentOptions}
                     className="w-[180px]"
                     placeholder={'Environment'}
+                    onChange={(value: 'dev' | 'prod' | 'proj') => setQuestEnvUrl(value)}
+                    defaultActiveFirstOption
+                    defaultValue={'dev'}
                     // size="small"
                   />
                 </div>
@@ -417,43 +468,112 @@ const DataTree = ({
                     options={serviceOptions}
                     className="w-[180px]"
                     placeholder={'Service'}
+                    onChange={(value: 'api' | 'game') => handleSetQuestServiceUrl(value)}
+                    defaultActiveFirstOption
+                    defaultValue={'api'}
                     // size="small"
                   />
                 </div>
               </div>
             </Col>
           </Row>
-          <Row gutter={[10, 10]}>
+          <Row gutter={[10, 10]} className="min-h-[300px]">
             <Col lg={12} xs={24} className="">
-              <div className="w-full border border-neutral-200">
-                <Tree
-                  showLine
-                  switcherIcon={<DownOutlined />}
-                  defaultExpandAll={false}
-                  treeData={firstResult ?? []}
-                  className="text-[16px]"
-                />
+              <div
+                className={`w-full ${isEmpty(data) ? 'flex items-center justify-center' : ''} border ${isLoadingGetComparisonData || isLoadingQuestData ? 'py-4 px-4 flex items-start justify-center' : ''} border-neutral-200 h-full`}
+              >
+                <Skeleton
+                  loading={isLoadingQuestData || isLoadingGetComparisonData}
+                  active={true}
+                  title={false}
+                  paragraph={{ rows: 8 }}
+                >
+                  {isEmpty(data) ? (
+                    <div className="flex flex-col gap-2 items-center justify-center">
+                      <NoDataIcon />
+                      <span className="font-semibold">No Data</span>
+                    </div>
+                  ) : (
+                    <Tree
+                      showLine
+                      switcherIcon={<DownOutlined />}
+                      defaultExpandAll={false}
+                      treeData={
+                        // compareAndHighlightArrays(
+                        //   convertToTreeData(omitProperties(data), '0', 'quest', currentMode),
+                        //   convertToTreeData(
+                        //     omitProperties(comparisonQuestData),
+                        //     '0',
+                        //     'quest',
+                        //     currentMode
+                        //   )
+                        // ).firstResult ?? []
+                        comparisonResult?.firstResult
+                      }
+                      className="text-[16px]"
+                    />
+                  )}
+                </Skeleton>
               </div>
             </Col>
             <Col lg={12} xs={24} className="">
-              <div className="w-full border border-neutral-200 h-full">
-                <Tree
-                  showLine
-                  switcherIcon={<DownOutlined />}
-                  defaultExpandAll={false}
-                  treeData={secondResult ?? []}
-                  className="text-[16px]"
-                />
+              <div
+                className={`w-full ${isEmpty(comparisonQuestData) ? 'flex items-center justify-center' : ''} border ${isLoadingGetComparisonData || isLoadingQuestData ? 'py-4 px-4 flex items-start justify-center' : ''} border-neutral-200 h-full`}
+              >
+                <Skeleton
+                  loading={isLoadingGetComparisonData || isLoadingQuestData}
+                  active={true}
+                  title={false}
+                  paragraph={{ rows: 8 }}
+                >
+                  {isEmpty(comparisonQuestData) ? (
+                    <div className="flex flex-col gap-2 items-center justify-center">
+                      <NoDataIcon />
+                      <span className="font-semibold">No Data</span>
+                    </div>
+                  ) : (
+                    <Tree
+                      showLine
+                      switcherIcon={<DownOutlined />}
+                      defaultExpandAll={false}
+                      treeData={
+                        // compareAndHighlightArrays(
+                        //   convertToTreeData(omitProperties(data), '0', 'quest', currentMode),
+                        //   convertToTreeData(
+                        //     omitProperties(comparisonQuestData),
+                        //     '0',
+                        //     'quest',
+                        //     currentMode
+                        //   )
+                        // ).secondResult ?? []
+                        comparisonResult?.secondResult
+                      }
+                      className="text-[16px]"
+                    />
+                  )}
+                </Skeleton>
               </div>
             </Col>
           </Row>
           <div className="flex flex-col mt-3 gap-1">
-            <div className="font-semibold text-[16px]">{`${arrDifferences} changes made`}</div>
+            <div className={`font-semibold text-[16px] ${isLoadingGetComparisonData || isLoadingQuestData ? 'hidden' : ''}`}>{`${
+              compareAndHighlightArrays(
+                convertToTreeData(omitProperties(data), '0', 'quest', currentMode),
+                convertToTreeData(omitProperties(comparisonQuestData), '0', 'quest', currentMode)
+              ).arrDifferences
+              // comparisonResult?.difference
+            } changes made`}</div>
             <Button
               className="opacity-100 hover:opacity-70 inline w-[120px] bg-black dark:bg-neutral-200 text-white dark:text-black !h-10 px-4 font-semibold rounded-md"
               type="primary"
-              disabled={false}
-              onClick={() => setIsPromoteModalOpen(true)}
+              disabled={
+                compareAndHighlightArrays(
+                  convertToTreeData(omitProperties(data), '0', 'quest', currentMode),
+                  convertToTreeData(omitProperties(comparisonQuestData), '0', 'quest', currentMode)
+                ).arrDifferences === 0 || isLoadingGetComparisonData || isLoadingQuestData
+              }
+              // onClick={() => setIsMigrateItemModalOpen(true)}
+              onClick={() => handleMigrateChanges()}
               // size="large"d dsbdbs,m
             >
               Migrate
