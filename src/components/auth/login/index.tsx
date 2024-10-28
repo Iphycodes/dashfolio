@@ -18,8 +18,8 @@ const Login = ({ handleLogin, isLoadingLogin }: LoginProps) => {
   };
   return (
     <div className="w-[500px] mx-auto">
-      <Card className="border shadow-md border-neutral-200 p-5">
-        <div className="font-semibold text-[22px] mb-6">Welcome back, sign in</div>
+      <Card className="border dark:bg-black shadow-md border-neutral-200 p-5">
+        <div className="font-semibold text-[22px] mb-6 dark:text-white">Welcome back, sign in</div>
         <Form
           form={form}
           layout="vertical"
@@ -46,7 +46,7 @@ const Login = ({ handleLogin, isLoadingLogin }: LoginProps) => {
             >
               <Input.Password
                 placeholder="Password"
-                className="w-full"
+                className="w-full bg-transparent"
                 size="large"
                 visibilityToggle
               />
@@ -54,7 +54,7 @@ const Login = ({ handleLogin, isLoadingLogin }: LoginProps) => {
           </Row>
           <Row>
             <Button
-              className="opacity-100 hover:opacity-70 mt-1.5 !bg-black text-white !h-12 font-semibold rounded-md"
+              className="opacity-100 hover:opacity-70 mt-1.5 !bg-black dark:!bg-neutral-200 dark:!text-black dark:hover:!text-black text-white !h-12 font-semibold rounded-md"
               type="primary"
               disabled={false}
               block
