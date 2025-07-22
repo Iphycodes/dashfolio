@@ -6,3 +6,11 @@ export interface Pagination {
   showSizeChanger?: boolean;
   showTotal: (total: number, range: [number, number]) => ReactNode;
 }
+
+export type NavItem = {
+  label: string | React.ReactNode;
+  key: string;
+  icon: React.ReactNode;
+  url?: string;
+  children?: NavItem[];
+};
