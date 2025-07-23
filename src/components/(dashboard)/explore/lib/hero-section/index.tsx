@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 
 const HeroSection = () => {
   const isMobile = useMediaQuery(mediaSize.mobile);
-  const isTablet = useMediaQuery(mediaSize.tablet);
+  // const isTablet = useMediaQuery(mediaSize.tablet);
   const { theme } = useTheme();
   const { push } = useRouter();
 
