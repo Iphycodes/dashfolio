@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
-import { Code, Link2 } from 'iconsax-react';
+import { Link2 } from 'iconsax-react';
 import { useState, useEffect } from 'react';
 
 interface Project {

@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
-import { Code1, BoxSearch, Command, LoginCurve } from 'iconsax-react';
+import { Code1, Command, LoginCurve } from 'iconsax-react';
 import StackCategory from './lib/stack-category';
 import TechCarousel from './lib/tech-carousel';
 import ExperienceIndicator from './lib/experience-indicator';

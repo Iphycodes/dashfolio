@@ -3,7 +3,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { QuoteUp, Star1 } from 'iconsax-react';
+import { QuoteUp } from 'iconsax-react';
 import { useState, useEffect } from 'react';
 
 interface Testimonial {
@@ -58,7 +58,7 @@ interface TestimonialsSectionProps {
   isTablet?: boolean;
 }
 
-const TestimonialsSection = ({ isMobile, isTablet }: TestimonialsSectionProps) => {
+const TestimonialsSection = ({ isMobile }: TestimonialsSectionProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 

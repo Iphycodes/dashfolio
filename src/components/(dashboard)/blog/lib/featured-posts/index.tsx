@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
-import { Book1, Clock, Profile2User } from 'iconsax-react';
+import { Clock } from 'iconsax-react';
 import { useState, useEffect } from 'react';
 import { BlogPost } from '../..';
 

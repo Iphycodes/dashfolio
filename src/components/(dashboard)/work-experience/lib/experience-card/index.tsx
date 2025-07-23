@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Building, Coffee, Location } from 'iconsax-react';
+import { Building, Location } from 'iconsax-react';
 import { Badge } from '@/components/ui/badge';
 
 interface ExperienceCardProps {

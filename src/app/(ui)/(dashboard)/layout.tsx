@@ -1,8 +1,8 @@
 // components/Layout.tsx
 'use client';
 
-import React, { useContext, useEffect, useState } from 'react';
-import { Layout as AntdLayout, Button, Col, Row } from 'antd';
+import React, { useContext, useEffect } from 'react';
+import { Layout as AntdLayout, Col, Row } from 'antd';
 import Sidebar from '@/components/layout/side-bar';
 import { AppContext } from '@/app-context';
 import Footer from '@/components/layout/footer';

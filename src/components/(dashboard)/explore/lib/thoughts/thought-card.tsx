@@ -3,7 +3,6 @@
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { motion } from 'framer-motion';
 import { Code1, Hierarchy, Mobile, Computing, Chart } from 'iconsax-react';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface ThoughtCardProps {
@@ -43,12 +42,10 @@ const ThoughtCard = ({
   category,
   iconType,
   readTime = '5 min',
-  href,
   id,
 }: ThoughtCardProps) => {
   const isMobile = useMediaQuery(mediaSize.mobile);
   const [isHovered, setIsHovered] = useState(false);
-  const { push } = useRouter();
 
   return (
     <motion.div

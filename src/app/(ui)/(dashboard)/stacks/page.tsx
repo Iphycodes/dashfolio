@@ -1,9 +1,7 @@
 import Stacks from '@/components/(dashboard)/stack';
 import React from 'react';
 
-interface StacksPageProps {}
-
-const StacksPage = ({}: StacksPageProps) => {
+const StacksPage = () => {
   return <Stacks />;
 };
 

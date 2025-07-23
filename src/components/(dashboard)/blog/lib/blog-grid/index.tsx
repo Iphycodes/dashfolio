@@ -14,9 +14,9 @@ interface BlogGridProps {
 
 const BlogGrid = ({ posts, isMobile, isTablet }: BlogGridProps) => {
   const searchParams = useSearchParams();
+  const category = searchParams.get('category');
 
-  // Initialize filter state from URL query param
-  const [filter, setFilter] = useState(searchParams.get('category') || 'all');
+  const [filter, setFilter] = useState(category || 'all');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;

@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { TagUser, Clock, ArrowRight2 } from 'iconsax-react';
-import { useState, useMemo } from 'react';
+import { TagUser, ArrowRight2 } from 'iconsax-react';
+import { useMemo } from 'react';
 import { BlogPost } from '../..';
 import { generatePastelColor } from '@/_shared/helpers';
 import { useSearchParams } from 'next/navigation';
@@ -25,26 +25,26 @@ const tags = [
   'API',
 ];
 
-const popularPosts = [
-  {
-    title: 'Building Scalable Microservices',
-    date: 'Mar 15, 2024',
-    readTime: '8 min',
-    slug: 'building-scalable-microservices',
-  },
-  {
-    title: 'React Performance Optimization',
-    date: 'Mar 10, 2024',
-    readTime: '6 min',
-    slug: 'react-performance-optimization',
-  },
-  {
-    title: 'Modern API Design Patterns',
-    date: 'Mar 5, 2024',
-    readTime: '7 min',
-    slug: 'modern-api-design-patterns',
-  },
-];
+// const popularPosts = [
+//   {
+//     title: 'Building Scalable Microservices',
+//     date: 'Mar 15, 2024',
+//     readTime: '8 min',
+//     slug: 'building-scalable-microservices',
+//   },
+//   {
+//     title: 'React Performance Optimization',
+//     date: 'Mar 10, 2024',
+//     readTime: '6 min',
+//     slug: 'react-performance-optimization',
+//   },
+//   {
+//     title: 'Modern API Design Patterns',
+//     date: 'Mar 5, 2024',
+//     readTime: '7 min',
+//     slug: 'modern-api-design-patterns',
+//   },
+// ];
 
 const Categories = ({ blogPosts }: CategoriesProps) => {
   // Generate categories with counts and colors

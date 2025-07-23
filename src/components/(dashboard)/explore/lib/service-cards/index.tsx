@@ -70,7 +70,7 @@ const ServiceCards = () => {
 
       <div className={`grid ${isMobile ? 'grid-cols-1 gap-6' : 'md:grid-cols-2 gap-8'}`}>
         {services.map((service, index) => (
-          <ServiceCard key={service.title} {...service} />
+          <ServiceCard key={service.title + index} {...service} />
         ))}
       </div>
     </motion.div>

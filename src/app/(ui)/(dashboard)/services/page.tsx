@@ -1,9 +1,8 @@
 import Services from '@/components/(dashboard)/services';
 import React from 'react';
 
-interface ServicesPageProps{}
 
-const ServicesPage = ({}:ServicesPageProps) => {
+const ServicesPage = () => {
   return (
     <Services/>
   );

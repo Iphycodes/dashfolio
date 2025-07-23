@@ -1,8 +1,7 @@
 import React from 'react';
 
-interface DashboardPageProps {}
 
-const DashboardPage = ({}: DashboardPageProps) => {
+const DashboardPage = () => {
   return <div className="monsterrat">This is the dashboard page</div>;
 };
 

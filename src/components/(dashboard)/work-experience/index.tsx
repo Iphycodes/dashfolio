@@ -3,7 +3,7 @@
 
 import { motion } from 'framer-motion';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
-import { Briefcase, Medal, Building } from 'iconsax-react';
+import { Briefcase } from 'iconsax-react';
 import ExperienceCard from './lib/experience-card';
 import StatsOverview from './lib/stats-overview';
 

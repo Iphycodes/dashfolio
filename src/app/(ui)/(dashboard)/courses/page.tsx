@@ -1,9 +1,8 @@
 import Courses from '@/components/(dashboard)/courses';
 import React from 'react';
 
-interface CoursesPageProps {}
 
-const CoursesPage = ({}: CoursesPageProps) => {
+const CoursesPage = () => {
   return <Courses />;
 };
 

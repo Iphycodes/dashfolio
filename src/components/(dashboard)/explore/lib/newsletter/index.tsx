@@ -22,8 +22,8 @@ const Newsletter = () => {
       await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulated delay
       message.success('Thank you for subscribing!');
       setEmail('');
-    } catch (error) {
-      message.error('Something went wrong. Please try again.');
+    } catch (error: any) {
+      message.error(error?.message || 'Something went wrong. Please try again:::');
     } finally {
       setLoading(false);
     }

@@ -4,7 +4,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
-import { Book1, Clock, Medal, Profile2User } from 'iconsax-react';
+import { Book1, Clock, Medal } from 'iconsax-react';
 import { useState, useEffect } from 'react';
 
 interface Instructor {

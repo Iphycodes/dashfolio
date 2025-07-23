@@ -34,7 +34,7 @@ const techAreas = [
 
 const TechPassion = () => {
   const isMobile = useMediaQuery(mediaSize.mobile);
-  const isTablet = useMediaQuery(mediaSize.tablet);
+  // const isTablet = useMediaQuery(mediaSize.tablet);
 
   return (
     <motion.div

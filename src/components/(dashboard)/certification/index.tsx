@@ -2,7 +2,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { useRef, useState } from 'react';
 import { Award, Medal, Gift } from 'iconsax-react';
 import CertificationCard from './lib/certification-card';
@@ -68,7 +67,9 @@ const awards = [
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState({});
-  const isMobile = useMediaQuery(mediaSize.mobile);
+  // const isMobile = useMediaQuery(mediaSize.mobile);
+
+  console.log(selectedCert)
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -151,7 +152,10 @@ const Certifications = () => {
           >
             {certifications.map((cert) => (
               <div key={cert.credential} className="flex-shrink-0 w-[350px]">
-                <CertificationCard {...cert} onClick={() => setSelectedCert(cert)} />
+                <CertificationCard
+                  {...cert}
+                  onClick={() => setSelectedCert(cert)}
+                />
               </div>
             ))}
           </div>

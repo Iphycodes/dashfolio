@@ -30,7 +30,7 @@ const technologies = [
   ],
 ];
 
-const TechCarousel = ({ isMobile, isTablet }: TechCarouselProps) => {
+const TechCarousel = ({ isMobile }: TechCarouselProps) => {
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
 

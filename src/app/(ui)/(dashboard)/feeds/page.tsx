@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface FeedsPageProps{}
-
-const FeedsPage = ({}:FeedsPageProps) => {
+const FeedsPage = () => {
   return (
     <div>
       Feeds Page

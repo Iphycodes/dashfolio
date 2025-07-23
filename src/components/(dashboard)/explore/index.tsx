@@ -3,7 +3,6 @@
 import HeroSection from './lib/hero-section';
 import NewDrops from './lib/new-drops';
 import ThoughtsSection from './lib/thoughts';
-import Newsletter from './lib/newsletter';
 import ServiceCards from './lib/service-cards';
 import ExperienceSection from './lib/experience';
 import { motion } from 'framer-motion';

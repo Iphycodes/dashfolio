@@ -1,13 +1,13 @@
 // src/app/(ui)/(dashboard)/blog/[id]/page.tsx
 'use client';
 
-import { useParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import BlogPostContent from '@/components/(dashboard)/blog/lib/blog-post-content';
 import { blogPosts } from '@/components/(dashboard)/blog';
 
 const BlogPost = () => {
-  const params = useParams();
-  const postId = params.id as string;
+  const params = useSearchParams();
+  const postId = params.get('id') as string;
 
   // Find the blog post with the matching ID
   const post = blogPosts.find((post) => post.id === postId);

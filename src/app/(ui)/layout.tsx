@@ -1,5 +1,5 @@
 'use client';
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement, Suspense, useEffect } from 'react';
 import { App, ConfigProvider } from 'antd';
 import { useTheme } from 'next-themes';
 import { theme as AntDTheme } from 'antd';
@@ -35,7 +35,9 @@ const BaseLayout = ({ children }: LayoutProps) => {
       }}
     >
       <AppProvider>
-        <App>{children}</App>
+        <Suspense fallback={<div>Loading...</div>}>
+          <App>{children}</App>
+        </Suspense>
       </AppProvider>
     </ConfigProvider>
   );

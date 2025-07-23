@@ -1,7 +1,6 @@
 // src/components/explore/lib/service-cards/service-card.tsx
 'use client';
 
-import { Button } from 'antd';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { motion } from 'framer-motion';
 import { Code, Teacher, JavaScript, Cloud } from 'iconsax-react';

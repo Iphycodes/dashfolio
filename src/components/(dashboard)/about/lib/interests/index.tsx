@@ -4,7 +4,7 @@
 import { motion } from 'framer-motion';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import InterestCard from './interest-card';
-import { Chart, Code1, Camera, Game, Book, Brush } from 'iconsax-react';
+import { Chart, Code1, Game, Brush } from 'iconsax-react';
 import Image from 'next/image';
 
 const interestsData = [

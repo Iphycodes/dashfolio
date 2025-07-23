@@ -15,7 +15,6 @@ interface usePaginationReturnProps {
 }
 
 export const usePagination = ({
-  key = '',
   title = '',
   perPage = 7,
 }: usePaginationType): usePaginationReturnProps => {

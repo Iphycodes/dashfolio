@@ -73,7 +73,6 @@ const LearningStats = ({ isMobile }: LearningStatsProps) => {
 const StatCard = ({
   stat,
   index,
-  isMobile,
 }: {
   stat: (typeof stats)[0];
   index: number;

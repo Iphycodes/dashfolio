@@ -52,7 +52,7 @@ const recentActivities: Activity[] = [
   },
 ];
 
-const RecentActivity = ({ isMobile, isTablet }: { isMobile?: boolean; isTablet?: boolean }) => {
+const RecentActivity = ({ isMobile }: { isMobile?: boolean; isTablet?: boolean }) => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">

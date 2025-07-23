@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface NoDataProps {}
-
-const NoData = ({}: NoDataProps) => {
+const NoData = () => {
   return (
     <div>
       <svg
