@@ -55,7 +55,7 @@ const ExperienceIndicator = ({ isMobile }: ExperienceIndicatorProps) => {
   return (
     <div className="space-y-8">
       <div className="text-center space-y-4">
-        <h2 className={`font-bold ${isMobile ? 'text-2xl' : 'text-3xl'}`}>Journey Through Tech</h2>
+        <h2 className={`font-bold ${isMobile ? 'text-2xl' : 'text-3xl'}`}>My Journey Through Tech</h2>
         <p
           className={`text-muted-foreground ${isMobile ? 'text-sm' : 'text-base'} max-w-2xl mx-auto`}
         >

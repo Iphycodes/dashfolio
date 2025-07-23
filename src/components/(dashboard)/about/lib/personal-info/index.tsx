@@ -56,8 +56,8 @@ const PersonalInfo = () => {
             >
               <p>
                 Born and raised in the vibrant city of Zaria, Nigeria, my story begins in a family
-                that valued both tradition and innovation. As the fith of six siblings, I grew up
-                in an environment where education and cultural values were equally emphasized.
+                that valued both tradition and innovation. As the fith of six siblings, I grew up in
+                an environment where education and cultural values were equally emphasized.
               </p>
               <p>
                 This unique blend of traditional values and modern aspirations has shaped my
@@ -84,7 +84,7 @@ const PersonalInfo = () => {
 
         {/* Image Section */}
         <motion.div
-          className={`relative ${isMobile ? 'h-[200px]' : isTablet ? 'h-[300px]' : 'h-full min-h-[500px]'}`}
+          className={`relative h-full min-h-[500px]`}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}

@@ -61,7 +61,7 @@ const ThoughtsSection = () => {
 
   return (
     <motion.div
-      className={`space-y-8 ${isMobile ? 'px-4' : ''}`}
+      className={`space-y-8 ${isMobile ? '' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       // viewport={{ once: true, margin: '-100px' }}

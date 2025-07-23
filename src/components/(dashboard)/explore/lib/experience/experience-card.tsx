@@ -1,6 +1,7 @@
 // src/cemnnoopst / explore / lib / experience / experience - card.tsx
 'use client';
 
+import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -23,9 +24,10 @@ const ExperienceCard = ({
   highlight,
   index,
 }: ExperienceCardProps) => {
+  const isMobile = useMediaQuery(mediaSize.mobile);
   return (
     <motion.div
-      className="group p-4 rounded-lg hover:bg-neutral-900/10 dark:hover:bg-neutral-800/50 transition-all duration-300"
+      className={`group ${isMobile ? 'p-2' : 'p-4'} rounded-lg hover:bg-neutral-900/10 dark:hover:bg-neutral-800/50 transition-all duration-300`}
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}

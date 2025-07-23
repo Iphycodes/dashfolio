@@ -7,6 +7,7 @@ import { Award, Medal, Gift } from 'iconsax-react';
 import CertificationCard from './lib/certification-card';
 import AwardCard from './lib/award-card';
 import Showcase from './lib/showcase';
+import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 
 const certifications = [
   {
@@ -67,9 +68,9 @@ const awards = [
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState({});
-  // const isMobile = useMediaQuery(mediaSize.mobile);
+  const isMobile = useMediaQuery(mediaSize.mobile);
 
-  console.log(selectedCert)
+  console.log(selectedCert);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -114,9 +115,9 @@ const Certifications = () => {
       {/* Certifications Grid */}
       <div className="space-y-4">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-bold flex items-center gap-2">
+          <h2 className={`${isMobile ? 'text-xl' : 'text-2xl'} font-bold flex items-center gap-2`}>
             <Medal variant="Bulk" className="text-yellow-500" size={24} />
-            Professional Certifications
+            My Professional Certifications
           </h2>
           <div className="flex items-center gap-2">
             <button
@@ -152,10 +153,7 @@ const Certifications = () => {
           >
             {certifications.map((cert) => (
               <div key={cert.credential} className="flex-shrink-0 w-[350px]">
-                <CertificationCard
-                  {...cert}
-                  onClick={() => setSelectedCert(cert)}
-                />
+                <CertificationCard {...cert} onClick={() => setSelectedCert(cert)} />
               </div>
             ))}
           </div>
@@ -170,9 +168,9 @@ const Certifications = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-bold flex items-center gap-2">
+          <h2 className={`${isMobile ? 'text-xl' : 'text-2xl'} font-bold flex items-center gap-2`}>
             <Award variant="Bulk" className="text-yellow-500" size={24} />
-            Notable Awards
+            My Notable Awards
           </h2>
           <div className="space-y-4">
             {awards.map((award, index) => (

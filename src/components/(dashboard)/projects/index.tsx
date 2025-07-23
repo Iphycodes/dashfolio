@@ -106,12 +106,12 @@ const Projects = () => {
         </motion.div>
 
         <h1 className={`${isMobile ? 'text-3xl' : 'text-4xl md:text-5xl'} font-bold`}>
-          Creative Projects Showcase
+          My Creative Projects Showcase
         </h1>
         <p
           className={`text-muted-foreground max-w-2xl mx-auto ${isMobile ? 'text-sm' : 'text-base'}`}
         >
-          Exploring the intersection of design and technology through innovative web solutions.
+          Exploring the intersection of design and technology through my innovative web solutions.
         </p>
       </motion.div>
 

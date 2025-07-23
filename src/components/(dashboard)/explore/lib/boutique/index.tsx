@@ -241,7 +241,7 @@ const Boutique = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-8 space-y-16">
+    <div className="max-w-7xl mx-auto py-8 space-y-16">
       {/* Hero Section */}
       <motion.div
         className="text-center space-y-6"

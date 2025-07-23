@@ -48,7 +48,7 @@ const ExperienceSection = () => {
 
   return (
     <motion.div
-      className={`space-y-8 ${isMobile ? 'px-4' : ''}`}
+      className={`space-y-8 ${isMobile ? '' : ''}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -81,8 +81,8 @@ const ExperienceSection = () => {
                 onClick={() => router.push('/experience')}
                 className="group flex items-center gap-2 hover:gap-3 text-base transition-all duration-300"
               >
-                <span>View All Experience</span>
-                <i className="ri-arrow-right-line group-hover:transform group-hover:translate-x-1 transition-transform duration-300"></i>
+                <span className='text-blue'>View All Experience</span>
+                <i className="ri-arrow-right-line group-hover:transform group-hover:translate-x-1 transition-transform duration-300 text-blue"></i>
               </Button>
             </motion.div>
           </div>

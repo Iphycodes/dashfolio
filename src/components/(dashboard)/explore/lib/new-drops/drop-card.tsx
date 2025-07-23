@@ -60,9 +60,9 @@ const DropCard = ({ title, description, count, image, href }: DropCardProps) => 
         </div>
       </div>
 
-      <div className="p-6 space-y-2">
+      <div className={`${isMobile ? 'p-3' : 'p-6'} space-y-2`}>
         <div className="flex justify-between items-start">
-          <h3 className="text-xl font-semibold">{title}</h3>
+          <h3 className={`${isMobile ? 'text-base' : 'text-xl'} font-semibold`}>{title}</h3>
           <motion.span
             className="text-sm text-muted-foreground bg-neutral-900/20 dark:bg-neutral-900/50 px-3 py-1 rounded-full"
             whileHover={{ scale: 1.05 }}

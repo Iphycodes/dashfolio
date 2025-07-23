@@ -15,7 +15,7 @@ const HeroSection = () => {
   const { push } = useRouter();
 
   return (
-    <div className={`space-y-8 ${isTablet ? 'px-4' : ''}`}>
+    <div className={`space-y-8`}>
       <div className="space-y-4">
         <motion.h1
           className={`font-extrabold leading-tight inline uppercase ${
@@ -38,6 +38,14 @@ const HeroSection = () => {
             </>
           )}
         </motion.h1>
+        <motion.h4
+          className={`font-semibold ${isMobile ? 'text-base' : 'text-lg'}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+        >
+          I am a Professional Full-Stack Software Developer
+        </motion.h4>
         <motion.p
           className={`text-muted-foreground ${isMobile ? 'text-base' : 'text-lg'}`}
           initial={{ opacity: 0, y: 20 }}

@@ -46,7 +46,7 @@ const connectNavItems: NavItem[] = [
     key: 'whatsapp',
     label: 'Whatsapp',
     icon: <i className="ri-whatsapp-line"></i>,
-    url: 'https://wa.me/09076141362',
+    url: 'https://wa.me/+2349076141362',
   },
   {
     key: 'x',
