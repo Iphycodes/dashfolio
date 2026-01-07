@@ -42,7 +42,7 @@ const TechPassion = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="rounded-xl border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 overflow-hidden"
+      className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 overflow-hidden"
     >
       <div className="grid md:grid-cols-5 gap-8 p-6">
         <div className="md:col-span-3 space-y-8">

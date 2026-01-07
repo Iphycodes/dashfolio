@@ -16,7 +16,7 @@ const certifications = [
     date: '2023',
     credential: 'AWS-SAA-C03',
     badges: ['HTML', 'CSS', 'Javascript', 'Github'],
-    logo: '/asset/svgs/brand-logo-1.svg',
+    logo: '/asset/svgs/alx-logo.jpeg',
     color: '#FF9900',
   },
   {
@@ -25,7 +25,7 @@ const certifications = [
     date: '2023',
     credential: 'AZ-204',
     badges: ['HTML', 'CSS', 'Javacript', 'Java'],
-    logo: '/asset/svgs/brand-logo-5.svg',
+    logo: '/asset/svgs/ABU-logo.png',
     color: '#008AD7',
   },
   {
@@ -34,7 +34,7 @@ const certifications = [
     date: '2022',
     credential: 'AZ-204',
     badges: ['HTML', 'CSS', 'Javacript', 'Typescript'],
-    logo: '/asset/svgs/brand-logo-5.svg',
+    logo: '/asset/svgs/google-dev-logo.png',
     color: '#008AD7',
   },
   {

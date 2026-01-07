@@ -91,7 +91,7 @@ const HeroSection = () => {
             )
           }
         >
-          Schedule a Meeting
+          Schedule an Appointment
         </Button>
       </motion.div>
     </div>

@@ -63,7 +63,7 @@ const CareerJourney = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="rounded-xl border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 overflow-hidden h-[800px] !mt-[100px]"
+      className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 overflow-hidden h-[800px] !mt-[100px]"
     >
       <div className={`grid ${isTablet ? 'grid-cols-1' : 'grid-cols-5'} h-full`}>
         {/* Content Section */}

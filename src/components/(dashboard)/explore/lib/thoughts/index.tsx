@@ -68,7 +68,7 @@ const ThoughtsSection = () => {
       transition={{ duration: 0.6 }}
     >
       {/* Main container with border */}
-      <motion.div className="rounded-xl border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 p-6">
+      <motion.div className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 p-6">
         <div className="space-y-6">
           {/* Header */}
           <div className="space-y-1">

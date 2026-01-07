@@ -50,7 +50,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="border-t border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20">
+    <footer className="border-t border-neutral-800/50 bg-neutral-800 dark:bg-neutral-900/20">
       <Row className="w-full">
         <Col lg={16} className="mx-auto">
           <div className="py-20">
@@ -62,7 +62,7 @@ const Footer = () => {
                 transition={{ duration: 1 }}
                 className="space-y-4"
               >
-                <h2 className="text-6xl md:text-7xl font-mono dark:text-white">
+                <h2 className="text-6xl md:text-7xl font-mono text-white">
                   {time}
                   <span className="text-neutral-500 ml-2">{availabilityTimes.timezone}</span>
                 </h2>
