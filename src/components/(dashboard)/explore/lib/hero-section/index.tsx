@@ -44,7 +44,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
-          I am a Professional Full-Stack Software Developer
+          A Professional Full-Stack Software Developer
         </motion.h4>
         <motion.p
           className={`text-muted-foreground ${isMobile ? 'text-base' : 'text-lg'}`}
