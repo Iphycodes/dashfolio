@@ -19,7 +19,7 @@ const CertificationCard = ({
   title,
   issuer,
   date,
-  credential,
+  // credential,
   badges,
   logo,
   color,
