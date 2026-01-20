@@ -5,7 +5,6 @@ import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { motion } from 'framer-motion';
 import { Link } from 'iconsax-react';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 interface ExperienceCardProps {
   company: string;
