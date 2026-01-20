@@ -62,12 +62,12 @@ const CertificationCard = ({
           ))}
         </div>
 
-        <div className="pt-4 border-t border-neutral-800/50">
+        {/* <div className="pt-4 border-t border-neutral-800/50">
           <div className="flex justify-between items-center">
             <span className="text-xs text-muted-foreground">Credential ID:</span>
             <span className="text-xs font-mono">{credential}</span>
           </div>
-        </div>
+        </div> */}
 
         <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/20 rounded-xl transition-colors" />
       </div>

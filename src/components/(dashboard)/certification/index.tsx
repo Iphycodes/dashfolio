@@ -10,32 +10,50 @@ import Showcase from './lib/showcase';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 
 const certifications = [
+  // {
+  //   title: 'ALX Africa',
+  //   issuer: 'Software Engineering',
+  //   date: '2023',
+  //   credential: '',
+  //   badges: ['HTML', 'CSS', 'Javascript', 'Github'],
+  //   logo: '/asset/svgs/alx-logo.jpeg',
+  //   color: '#FF9900',
+  // },
   {
-    title: 'ALX Africa',
-    issuer: 'Software Engineering',
+    title: 'Bsc. Computer Science',
+    issuer: 'Ahmadu Bello University',
     date: '2023',
-    credential: 'AWS-SAA-C03',
-    badges: ['HTML', 'CSS', 'Javascript', 'Github'],
-    logo: '/asset/svgs/alx-logo.jpeg',
-    color: '#FF9900',
-  },
-  {
-    title: 'Bachelors of Computer Science',
-    issuer: 'Ahmadu Bellop University',
-    date: '2023',
-    credential: 'AZ-204',
+    credential: '',
     badges: ['HTML', 'CSS', 'Javacript', 'Java'],
     logo: '/asset/svgs/ABU-logo.png',
     color: '#008AD7',
   },
+  // {
+  //   title: 'Software Development',
+  //   issuer: 'Google Developers',
+  //   date: '2022',
+  //   credential: '',
+  //   badges: ['HTML', 'CSS', 'Javacript', 'Typescript'],
+  //   logo: '/asset/svgs/google-dev-logo.png',
+  //   color: '#008AD7',
+  // },
   {
     title: 'Software Development',
-    issuer: 'Google Developers',
-    date: '2022',
-    credential: 'AZ-204',
-    badges: ['HTML', 'CSS', 'Javacript', 'Typescript'],
-    logo: '/asset/svgs/google-dev-logo.png',
+    issuer: 'W3 Schools',
+    date: '2021',
+    credential: '',
+    badges: ['HTML', 'CSS', 'Javascript', 'React'],
+    logo: '/asset/imgs/w3-schools-logo.png',
     color: '#008AD7',
+  },
+  {
+    title: 'ICT Director',
+    issuer: 'Hult Prize',
+    date: '2021',
+    credential: '',
+    badges: ['Innovation'],
+    logo: '/asset/imgs/hult-prize-logo.png',
+    color: '#FF9900',
   },
   {
     title: 'Diploma ICT and Web Design',
@@ -56,13 +74,13 @@ const awards = [
     description: 'Recognized for outstanding academic performance',
     icon: Gift,
   },
-  {
-    title: 'Outstanding Student Developer',
-    event: 'Hult Prize Excellence Awards',
-    position: 'Gold Medal',
-    description: 'Awarded for building exceptional student driven solutions',
-    icon: Gift,
-  },
+  // {
+  //   title: 'Outstanding Student Developer',
+  //   event: 'Hult Prize Excellence Awards',
+  //   position: 'Gold Medal',
+  //   description: 'Awarded for building exceptional student driven solutions',
+  //   icon: Gift,
+  // },
   // Add more awards
 ];
 
@@ -189,9 +207,9 @@ const Certifications = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <StatCard number="7+" label="Certifications" />
-        <StatCard number="2+" label="Industry Awards" />
-        <StatCard number="3+" label="Years Experience" />
+        <StatCard number="3+" label="Certifications" />
+        <StatCard number="1+" label="Awards" />
+        <StatCard number="4+" label="Years Experience" />
         <StatCard number="12+" label="Projects Delivered" />
       </motion.div>
     </div>

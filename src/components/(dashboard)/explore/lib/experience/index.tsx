@@ -9,42 +9,75 @@ import ExperienceCard from './experience-card';
 
 const experiences = [
   {
-    company: 'ByteGum',
-    role: 'Intern Frontend Engineer',
-    period: '2022 (Internship)',
-    logo: '/asset/svgs/brand-logo-7.svg',
-    techStack: ['React', 'Next.js', 'Typescript', 'Ant Design', 'Redux', 'Styled Component'],
-    highlight: 'Get hands on a significant number of software development tools.',
-  },
-  {
-    company: 'Kassh Nig Ltd.',
-    role: 'Frontend Developer',
-    period: '2023 (Contract)',
-    logo: '/asset/svgs/brand-logo-2.svg',
-    techStack: ['React', 'Next.js', 'Typescript', 'Bootstrap', 'Redux', 'Rtk', 'SCSS'],
-    highlight: 'First collaboration with development teams.',
-  },
-  {
-    company: 'Calcot Technologies',
-    role: 'Frontend Developer',
-    period: '2023 - 2024 (Full Time)',
-    logo: '/asset/svgs/brand-logo-6.svg',
-    techStack: ['Next.js', 'Nest.js', 'Typescript', 'Ant Design', 'Redux', 'Tailwind'],
-    highlight: '300% performance improvement',
-  },
-  {
     company: 'Ekaruz Technology',
-    role: 'Full Stack Developer',
-    period: '2024 - Present (Full Time)',
+    role: 'Full Stack Engineer',
+    period: '2025 - Present (Full Time)',
     logo: '/asset/svgs/ekaruz-logo.png',
     techStack: ['Next.js', 'TypeScript', 'Shadcn', 'Node Js', 'Nest js', 'Mongo db', 'Superbase'],
     highlight: 'Build multiple minimum viable products (MVP) in agile environment',
+    link: 'https://ekaruz.com/',
+  },
+  {
+    company: 'EDNL',
+    role: 'Frontend Engineer',
+    period: '2025 (Contract)',
+    logo: '/asset/svgs/aaa-ednl-logo.png',
+    techStack: ['Next.js', 'Typescript', 'Shadcn', 'Ant Design', 'Redux', 'Tailwind'],
+    highlight: 'Build and manage DeduktPro Web application ',
+    link: 'https://ednl.co/',
+  },
+  {
+    company: 'BabyMomsi',
+    role: 'Frontend Engineer',
+    period: '2025 (Contract)',
+    logo: '/asset/svgs/aaa-babymomsi-logo.jpeg',
+    techStack: ['Next.js', 'Typescript', 'Ant Design', 'Redux', 'Tailwind'],
+    highlight: 'Build and manage Web application for Babymomsi projects',
+    link: 'https://babymomsi.com/',
+  },
+  {
+    company: 'GiroStack',
+    role: 'Frontend Engineer',
+    period: '2024 - 2025 (Full Time)',
+    logo: '/asset/svgs/aaa-giro-logo.jpeg',
+    techStack: ['Next.js', 'Typescript', 'Ant Design', 'Redux', 'Tailwind'],
+    highlight: 'build and manage Giro application ',
+    link: 'https://girostack.com/',
+  },
+  {
+    company: 'Voomsway',
+    role: 'Frontend Engineer',
+    period: '2024 (Contract)',
+    logo: '/asset/svgs/aaa-voomsway-logo.png',
+    techStack: ['Next.js', 'Typescript', 'Ant Design', 'Redux', 'Tailwind'],
+    highlight: 'build and manage Giro application ',
+    link: 'https://voomsway.com/',
+  },
+  {
+    company: 'Calcot Technologies',
+    role: 'Frontend Engineer',
+    period: '2023 - 2024 (Full Time)',
+    logo: '/asset/svgs/brand-logo-6.svg',
+    techStack: ['Next.js', 'Nest.js', 'Typescript', 'Ant Design', 'Redux', 'Tailwind'],
+    highlight: 'Build, managed and tested several viable products including Giro, Digisign',
+    link: 'https://github.com/Calcot',
+  },
+  {
+    company: 'ByteGum Ltd',
+    role: 'Junior Frontend Engineer',
+    period: '2021 - 2022 (Internship)',
+    logo: '/asset/svgs/brand-logo-7.svg',
+    techStack: ['React', 'Next.js', 'Typescript', 'Ant Design', 'Redux', 'Styled Component'],
+    highlight: 'Get hands on a significant number of software development tools.',
+    link: 'https://github.com/ByteGum',
   },
 ];
 
 const ExperienceSection = () => {
   const isMobile = useMediaQuery(mediaSize.mobile);
   const router = useRouter();
+
+
 
   return (
     <motion.div

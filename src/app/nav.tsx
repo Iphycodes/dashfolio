@@ -11,13 +11,13 @@ export type Nav = {
 const menuNavItem: NavItem[] = [
   { key: 'explore', label: 'Explore', icon: <i className="ri-compass-3-line"></i> },
   { key: 'about', label: 'About', icon: <i className="ri-user-line"></i> },
+  { key: 'projects', label: 'Projects', icon: <i className="ri-task-line"></i> },
   {
     key: 'certification',
     label: 'Certification',
     icon: <i className="ri-graduation-cap-line"></i>,
   },
   { key: 'stacks', label: 'Stacks', icon: <i className="ri-stack-line"></i> },
-  { key: 'projects', label: 'Projects', icon: <i className="ri-task-line"></i> },
   { key: 'experience', label: 'Work Experience', icon: <i className="ri-briefcase-line"></i> },
 ];
 
@@ -41,6 +41,12 @@ const connectNavItems: NavItem[] = [
     label: 'Instagram',
     icon: <i className="ri-instagram-line"></i>,
     url: 'https://www.instagram.com/ifeanyiemmanuel_ng/',
+  },
+  {
+    key: 'tiktok',
+    label: 'TikTok',
+    icon: <i className="ri-tiktok-line"></i>,
+    url: 'https://www.tiktok.com/@ifeanyiemmanuel_ng',
   },
   {
     key: 'whatsapp',

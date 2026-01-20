@@ -66,7 +66,7 @@ const ProjectCard = ({
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
             >
-              <Link size={20} className="text-white" />
+              <Link size={20} className="dark:text-white " />
             </a>
             <a
               href={project.github}

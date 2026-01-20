@@ -3,7 +3,9 @@
 
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { motion } from 'framer-motion';
+import { Link } from 'iconsax-react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 interface ExperienceCardProps {
   company: string;
@@ -13,6 +15,7 @@ interface ExperienceCardProps {
   techStack: string[];
   highlight: string;
   index: number;
+  link: string;
 }
 
 const ExperienceCard = ({
@@ -23,6 +26,7 @@ const ExperienceCard = ({
   techStack,
   highlight,
   index,
+  link,
 }: ExperienceCardProps) => {
   const isMobile = useMediaQuery(mediaSize.mobile);
   return (
@@ -41,7 +45,17 @@ const ExperienceCard = ({
         <div className="flex-1">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="font-semibold text-base">{company}</h3>
+              <div className="flex items-center gap-1">
+                <h3 className="font-semibold text-base">{company}</h3>
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 transition-colors"
+                >
+                  <Link size={20} className="text-neutral-700 dark:text-white" />
+                </a>
+              </div>
               <p className="text-sm text-muted-foreground">{role}</p>
             </div>
             <span className="text-xs text-muted-foreground italic">{period}</span>
