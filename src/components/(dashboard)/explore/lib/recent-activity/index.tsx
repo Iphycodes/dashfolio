@@ -2,7 +2,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code1, Chart, Setting2, Star1 } from 'iconsax-react';
+import { Code1, Chart, Star1 } from 'iconsax-react';
 
 interface Activity {
   type: 'commit' | 'project' | 'article' | 'contribution';
