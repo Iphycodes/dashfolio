@@ -159,7 +159,7 @@ const LearningTimeline = ({ isMobile }: { isMobile?: boolean }) => {
               <div className="absolute left-[-8px] top-[6px] w-[15px] h-[15px] rounded-full border-2 border-neutral-800/20 bg-neutral-900/10 dark:bg-neutral-800/30" />
 
               <div>
-                <div className="text-sm font-medium text-blue-500">{item.year}</div>
+                <div className="text-sm font-medium text-blue">{item.year}</div>
                 <div className="mt-1">{item.milestone}</div>
               </div>
             </motion.div>

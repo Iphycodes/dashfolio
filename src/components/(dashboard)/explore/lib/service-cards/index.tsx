@@ -1,10 +1,8 @@
 'use client';
 
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
-import { motion } from 'framer-motion';
 import ServiceCard from './service-card';
 
-// src/components/explore/lib/service-cards/index.tsx
 const services = [
   {
     title: 'Web Development',
@@ -18,7 +16,7 @@ const services = [
       'Performance Optimization',
     ],
     action: 'View Development Projects',
-    href: 'projects'
+    href: 'projects',
   },
   {
     title: 'Technical Consultation',
@@ -32,7 +30,7 @@ const services = [
       'Security Assessment',
     ],
     action: 'Explore Consultation Services',
-    href: 'services'
+    href: 'services',
   },
 ];
 
@@ -40,40 +38,20 @@ const ServiceCards = () => {
   const isMobile = useMediaQuery(mediaSize.mobile);
 
   return (
-    <motion.div
-      className={`space-y-8 ${isMobile ? '' : ''}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="space-y-2">
-        <motion.h2
-          className="text-2xl font-semibold"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Services & Expertise
-        </motion.h2>
-        <motion.p
-          className="text-muted-foreground"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
+    <div className="space-y-6">
+      <div className="space-y-1">
+        <h2 className="text-2xl font-semibold">Services & Expertise</h2>
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm">
           Professional development services and technical consultation
-        </motion.p>
+        </p>
       </div>
 
-      <div className={`grid ${isMobile ? 'grid-cols-1 gap-6' : 'md:grid-cols-2 gap-8'}`}>
+      <div className={`grid ${isMobile ? 'grid-cols-1 gap-5' : 'md:grid-cols-2 gap-6'}`}>
         {services.map((service, index) => (
           <ServiceCard key={service.title + index} {...service} />
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };
 

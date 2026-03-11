@@ -51,7 +51,7 @@ const FilterBar = ({ categories, activeCategory, setActiveCategory, isMobile }: 
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-lg text-sm transition-all duration-300 ${
                   activeCategory === category
-                    ? 'bg-blue-500 text-white'
+                    ? 'bg-blue text-white'
                     : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
                 }`}
                 whileHover={{ scale: 1.05 }}
@@ -75,7 +75,7 @@ const FilterBar = ({ categories, activeCategory, setActiveCategory, isMobile }: 
                   <div className="relative w-40">
                     <div className="h-1 bg-neutral-900/10 dark:bg-neutral-800/30 rounded-full">
                       <motion.div
-                        className="absolute h-full bg-blue-500 rounded-full"
+                        className="absolute h-full bg-blue rounded-full"
                         style={{
                           left: `${(priceRange[0] / 200) * 100}%`,
                           right: `${100 - (priceRange[1] / 200) * 100}%`,

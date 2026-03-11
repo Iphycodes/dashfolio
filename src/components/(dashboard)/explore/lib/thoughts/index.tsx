@@ -1,4 +1,3 @@
-// src/components/explore/lib/thoughts/index.tsx
 'use client';
 
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
@@ -60,61 +59,36 @@ const ThoughtsSection = () => {
   const isMobile = useMediaQuery(mediaSize.mobile);
 
   return (
-    <motion.div
-      className={`space-y-8 ${isMobile ? '' : ''}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      // viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6 }}
-    >
-      {/* Main container with border */}
-      <motion.div className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 p-6">
-        <div className="space-y-6">
-          {/* Header */}
-          <div className="space-y-1">
-            <motion.h2
-              className="text-2xl font-semibold"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              Technical Insights
-            </motion.h2>
-            <motion.p
-              className="text-sm text-muted-foreground"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Sharing experiences, knowledge and videos on design, tech and finance.
-            </motion.p>
-          </div>
-
-          {/* Grid of cards */}
-          <motion.div
-            className={`grid ${isMobile ? 'grid-cols-1 gap-2' : 'grid-cols-2 gap-4'}`}
-            variants={{
-              hidden: { opacity: 0 },
-              show: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.1,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            {thoughtItems.map((thought, index) => (
-              <ThoughtCard key={thought.title + index} {...thought} />
-            ))}
-          </motion.div>
+    <div className="rounded-2xl border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50 dark:bg-neutral-900/30 p-6">
+      <div className="space-y-6">
+        {/* Header */}
+        <div className="space-y-1">
+          <h2 className="text-2xl font-semibold">Technical Insights</h2>
+          <p className="text-sm text-neutral-500 dark:text-neutral-400">
+            Sharing experiences, knowledge and videos on design, tech and finance.
+          </p>
         </div>
-      </motion.div>
-    </motion.div>
+
+        {/* Grid of cards */}
+        <motion.div
+          className={`grid ${isMobile ? 'grid-cols-1 gap-1' : 'grid-cols-2 gap-2'}`}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: { staggerChildren: 0.06 },
+            },
+          }}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          {thoughtItems.map((thought, index) => (
+            <ThoughtCard key={thought.title + index} {...thought} />
+          ))}
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

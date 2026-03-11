@@ -97,7 +97,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
             <div className="space-y-6">
               {/* Badge and Rating */}
               <div className="flex items-center justify-between">
-                <Badge variant="outline" className="bg-blue-500/10 text-blue-500">
+                <Badge variant="outline" className="bg-blue/10 text-blue">
                   Featured
                 </Badge>
                 <div className="flex items-center gap-1">
@@ -111,7 +111,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
                 <h2 className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold`}>
                   {products[currentIndex].name}
                 </h2>
-                <div className="mt-2 text-2xl font-semibold text-blue-500">
+                <div className="mt-2 text-2xl font-semibold text-blue">
                   ${products[currentIndex].price}
                 </div>
               </div>
@@ -140,7 +140,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
                         key={color}
                         className={`w-6 h-6 rounded-full border-2 transition-all duration-200 ${
                           selectedColor === color
-                            ? 'border-blue-500 scale-110'
+                            ? 'border-blue scale-110'
                             : 'border-transparent hover:scale-110'
                         }`}
                         style={{ backgroundColor: color }}
@@ -159,7 +159,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
                         key={size}
                         className={`px-3 py-1 rounded-lg text-sm transition-all duration-200 ${
                           selectedSize === size
-                            ? 'bg-blue-500 text-white'
+                            ? 'bg-blue text-white'
                             : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
                         }`}
                         onClick={() => setSelectedSize(size)}
@@ -174,7 +174,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
               {/* Action Buttons */}
               <div className="flex gap-4">
                 <motion.button
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue text-white hover:bg-blue-600 transition-colors"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -288,7 +288,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
             onClick={() => setCurrentIndex(index)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? 'w-6 bg-blue-500'
+                ? 'w-6 bg-blue'
                 : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
             }`}
           />

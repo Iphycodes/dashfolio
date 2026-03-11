@@ -1,8 +1,6 @@
-// src/components/explore/lib/experience/index.tsx
 'use client';
 
 import { Button } from 'antd';
-import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import ExperienceCard from './experience-card';
@@ -74,29 +72,20 @@ const experiences = [
 ];
 
 const ExperienceSection = () => {
-  const isMobile = useMediaQuery(mediaSize.mobile);
   const router = useRouter();
 
-
-
   return (
-    <motion.div
-      className={`space-y-8 ${isMobile ? '' : ''}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 p-6">
+    <div className="space-y-8">
+      <div className="rounded-2xl border border-neutral-200/60 dark:border-neutral-800/60 bg-neutral-50 dark:bg-neutral-900/30 p-6">
         <div className="space-y-6">
           <div className="space-y-1">
             <h2 className="text-2xl font-semibold">Work Experience</h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-neutral-500 dark:text-neutral-400">
               Professional journey through tech companies
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {experiences.map((exp, index) => (
               <ExperienceCard key={exp.company} {...exp} index={index} />
             ))}
@@ -107,21 +96,21 @@ const ExperienceSection = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.3 }}
             >
               <Button
                 type="text"
                 onClick={() => router.push('/experience')}
-                className="group flex items-center gap-2 hover:gap-3 text-base transition-all duration-300"
+                className="group flex items-center gap-2 hover:gap-3 text-sm font-medium transition-all duration-300"
               >
                 <span className="text-blue">View All Experience</span>
-                <i className="ri-arrow-right-line group-hover:transform group-hover:translate-x-1 transition-transform duration-300 text-blue"></i>
+                <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300 text-blue" />
               </Button>
             </motion.div>
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

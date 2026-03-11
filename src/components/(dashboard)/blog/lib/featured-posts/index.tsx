@@ -77,7 +77,7 @@ const FeaturedPosts = ({ posts, isMobile, isTablet }: FeaturedPostsProps) => {
             <div className="space-y-6">
               {/* Category & Date */}
               <div className="flex items-center gap-4 text-sm">
-                <Badge variant="outline" className="text-blue-500">
+                <Badge variant="outline" className="text-blue">
                   {posts[currentIndex].category}
                 </Badge>
                 <span className="text-muted-foreground">
@@ -93,7 +93,7 @@ const FeaturedPosts = ({ posts, isMobile, isTablet }: FeaturedPostsProps) => {
               <div>
                 <Link href={`/blog/${posts[currentIndex].id}`}>
                   <h2
-                    className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-black dark:text-white hover:text-blue-500 transition-colors`}
+                    className={`${isMobile ? 'text-2xl' : 'text-3xl'} font-bold text-black dark:text-white hover:text-blue transition-colors`}
                   >
                     {posts[currentIndex].title}
                   </h2>
@@ -132,7 +132,7 @@ const FeaturedPosts = ({ posts, isMobile, isTablet }: FeaturedPostsProps) => {
               {/* CTA */}
               <Link href={`/blog/${posts[currentIndex].id}`}>
                 <motion.button
-                  className="inline-flex items-center gap-2 mt-5 text-blue-500 font-medium"
+                  className="inline-flex items-center gap-2 mt-5 text-blue font-medium"
                   whileHover={{ x: 5 }}
                 >
                   <span>Read More</span>
@@ -172,7 +172,7 @@ const FeaturedPosts = ({ posts, isMobile, isTablet }: FeaturedPostsProps) => {
             onClick={() => setCurrentIndex(index)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? 'w-6 bg-blue-500'
+                ? 'w-6 bg-blue'
                 : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
             }`}
           />

@@ -47,7 +47,7 @@ const Newsletter = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <i className="ri-mail-send-line text-2xl text-blue-500"></i>
+          <i className="ri-mail-send-line text-2xl text-blue"></i>
           <h2 className="text-2xl font-semibold">Stay Updated</h2>
         </motion.div>
         <motion.p

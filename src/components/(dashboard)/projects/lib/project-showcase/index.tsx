@@ -118,7 +118,7 @@ const ProjectShowcase = ({ projects, isMobile, isTablet }: ProjectShowcaseProps)
                   href={projects[currentIndex].link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm hover:text-blue-500 transition-colors"
+                  className="flex items-center gap-2 text-sm hover:text-blue transition-colors"
                 >
                   <Link2 size={16} />
                   <span>Live Preview</span>
@@ -128,7 +128,7 @@ const ProjectShowcase = ({ projects, isMobile, isTablet }: ProjectShowcaseProps)
                   href={projects[currentIndex].github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm hover:text-blue-500 transition-colors"
+                  className="flex items-center gap-2 text-sm hover:text-blue transition-colors"
                 >
                   <Code size={16} />
                   <span>View Code</span>
@@ -167,7 +167,7 @@ const ProjectShowcase = ({ projects, isMobile, isTablet }: ProjectShowcaseProps)
             onClick={() => setCurrentIndex(index)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? 'w-6 bg-blue-500'
+                ? 'w-6 bg-blue'
                 : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
             }`}
           />

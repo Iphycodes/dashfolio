@@ -75,7 +75,7 @@ const Courses = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Book1 variant="Bulk" className="text-blue-500" size={20} />
+          <Book1 variant="Bulk" className="text-blue" size={20} />
           <span className="text-sm">Educational Journey</span>
         </motion.div>
 
@@ -131,7 +131,7 @@ const Courses = () => {
           I'm always open to collaborating and sharing knowledge. Let's connect and learn together!
         </p>
         <motion.button
-          className="px-6 py-3 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+          className="px-6 py-3 rounded-full bg-blue text-white hover:bg-blue-600 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

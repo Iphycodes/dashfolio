@@ -3,86 +3,91 @@
 import { Button } from 'antd';
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { motion } from 'framer-motion';
-// import { Code1, Mobile, Hierarchy, CloudConnection, Status } from 'iconsax-react';
-
-import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
 
 const HeroSection = () => {
   const isMobile = useMediaQuery(mediaSize.mobile);
-  // const isTablet = useMediaQuery(mediaSize.tablet);
-  const { theme } = useTheme();
   const { push } = useRouter();
 
   return (
-    <div className={`space-y-8`}>
-      <div className="space-y-4">
+    <div className="space-y-8">
+      {/* Status badge */}
+      <motion.div
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/60 border border-neutral-200/80 dark:border-neutral-700/40"
+        initial={{ opacity: 0, y: 15, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+        <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
+          Open to opportunities
+        </span>
+      </motion.div>
+
+      <div className="space-y-5">
         <motion.h1
-          className={`font-extrabold leading-tight inline uppercase ${
-            isMobile ? 'text-3xl' : 'text-[54px]'
-          } ${theme === 'dark' ? 'dark' : 'light'}`}
-          initial={{ opacity: 0, y: 20 }}
+          className={`font-extrabold leading-[1.1] tracking-tight ${
+            isMobile ? 'text-3xl' : 'text-[52px]'
+          }`}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          style={{
-            letterSpacing: '',
-          }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           {isMobile ? (
-            "Hello, I'm Ifeanyi Emmanuel "
+            <>
+              Hello, I&apos;m{' '}
+              <span className="bg-gradient-to-r from-blue to-cyan-400 bg-clip-text text-transparent">
+                Ifeanyi Emmanuel
+              </span>
+            </>
           ) : (
             <>
-              Hello, <br /> I'm Ifeanyi Emmanuel
-              <br />
-              {/* Development Portfolio Hub. */}
+              Hello, <br />
+              I&apos;m{' '}
+              <span className="bg-gradient-to-r from-blue via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                Ifeanyi Emmanuel
+              </span>
             </>
           )}
         </motion.h1>
         <motion.h4
-          className={`font-semibold ${isMobile ? 'text-base' : 'text-lg'}`}
+          className={`font-semibold text-neutral-700 dark:text-neutral-300 ${isMobile ? 'text-base' : 'text-lg'}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          A Professional Frontend Software Engineer
+          A Professional Software Engineer (Frontend Heavy)
         </motion.h4>
         <motion.p
-          className={`text-muted-foreground ${isMobile ? 'text-base' : 'text-lg'}`}
+          className={`text-neutral-500 dark:text-neutral-400 leading-relaxed ${isMobile ? 'text-base' : 'text-lg'} max-w-2xl`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+          transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
         >
-          {isMobile ? (
-            'Explore my journey through web development, projects, certifications, and technical expertise. Discover how I turn ideas into elegant solutions.'
-          ) : (
-            <>
-              Explore my journey through web development, projects, certifications,
-              <br />
-              and technical expertise. Discover how I turn ideas into elegant solutions.
-            </>
-          )}
+          Explore my journey through web development, projects, certifications, and technical
+          expertise. Discover how I turn ideas into elegant solutions.
         </motion.p>
       </div>
 
       <motion.div
-        className={`${isMobile ? 'flex flex-col space-y-3' : 'flex gap-1'}`}
+        className={`${isMobile ? 'flex flex-col space-y-3' : 'flex gap-3'}`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+        transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
       >
         <Button
           type="primary"
           size="large"
-          className={`!bg-blue-gradient !h-12 hover:!opacity-80 ${isMobile ? 'w-full' : 'min-w-[100px]'}`}
+          className={`!bg-blue-gradient !h-12 !rounded-full !font-medium hover:!opacity-90 !transition-opacity !border-0 ${isMobile ? 'w-full' : 'min-w-[140px]'}`}
           onClick={() => push('/about')}
         >
           About Me
         </Button>
         <Button
-          type="primary"
+          type="default"
           size="large"
-          icon={<i className="ri-mail-line" />}
-          className={`!h-12 ${isMobile ? 'w-full' : 'min-w-[100px]'} !text-neutral-700 dark:!text-white !border-neutral-400 dark:!border-neutral-800 !bg-[#fafafa] dark:!bg-neutral-900 right-[-20px] top-[35%] cursor-pointer hover:!bg-[#e0e0e0] hover:dark:!bg-neutral-800`}
+          icon={<i className="ri-calendar-line" />}
+          className={`!h-12 !rounded-full !font-medium ${isMobile ? 'w-full' : 'min-w-[140px]'} !text-neutral-700 dark:!text-neutral-200 !border-neutral-200 dark:!border-neutral-700 !bg-neutral-50 dark:!bg-neutral-800/80 hover:!bg-neutral-100 hover:dark:!bg-neutral-700 !transition-colors`}
           onClick={() =>
             window.open(
               'https://calendly.com/ifeanyiemmanuel585/appointment-meeting',

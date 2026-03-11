@@ -92,7 +92,7 @@ const WorkExperience = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Briefcase variant="Bulk" className="text-blue-500" size={20} />
+          <Briefcase variant="Bulk" className="text-blue" size={20} />
           <span className="text-sm">Professional Journey</span>
         </motion.div>
 
@@ -131,7 +131,7 @@ const WorkExperience = () => {
       >
         <p className="text-muted-foreground">Interested in working together? Let's connect!</p>
         <motion.button
-          className="px-6 py-3 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+          className="px-6 py-3 rounded-full bg-blue text-white hover:bg-blue-600 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

@@ -25,7 +25,7 @@ const BlogPostContent = ({ post }: BlogPostContentProps) => {
         transition={{ duration: 0.6 }}
       >
         <div className="space-y-2">
-          <Badge variant="outline" className="text-blue-500">
+          <Badge variant="outline" className="text-blue">
             {post.category}
           </Badge>
           <h1 className={`${isMobile ? 'text-3xl' : 'text-4xl md:text-5xl'} font-bold`}>

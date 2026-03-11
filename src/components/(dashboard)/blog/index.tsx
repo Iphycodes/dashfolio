@@ -123,7 +123,7 @@ const Blog = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Book1 variant="Bulk" className="text-blue-500" size={20} />
+          <Book1 variant="Bulk" className="text-blue" size={20} />
           <span className="text-sm">Technical Insights</span>
         </motion.div>
 

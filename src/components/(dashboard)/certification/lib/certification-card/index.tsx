@@ -44,9 +44,7 @@ const CertificationCard = ({
         </div>
 
         <div>
-          <h3 className="text-lg font-semibold group-hover:text-blue-500 transition-colors">
-            {title}
-          </h3>
+          <h3 className="text-lg font-semibold group-hover:text-blue transition-colors">{title}</h3>
           <p className="text-sm text-muted-foreground">{issuer}</p>
         </div>
 
@@ -69,7 +67,7 @@ const CertificationCard = ({
           </div>
         </div> */}
 
-        <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue-500/20 rounded-xl transition-colors" />
+        <div className="absolute inset-0 border-2 border-transparent group-hover:border-blue/20 rounded-xl transition-colors" />
       </div>
     </motion.div>
   );

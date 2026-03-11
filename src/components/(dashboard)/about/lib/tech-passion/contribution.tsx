@@ -26,14 +26,14 @@ const Contribution = () => {
     >
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Weekly Activity</h3>
-        <Chart variant="Bulk" size={20} className="text-blue-500" />
+        <Chart variant="Bulk" size={20} className="text-blue" />
       </div>
 
       <div className="flex items-end justify-between gap-2 h-32">
         {contributionData.map((data, index) => (
           <div key={data.day} className="flex flex-col items-center gap-2">
             <motion.div
-              className="w-2 bg-blue-500/20 rounded-full"
+              className="w-2 bg-blue/20 rounded-full"
               style={{
                 height: `${(data.commits / maxCommits) * 100}%`,
               }}
@@ -43,7 +43,7 @@ const Contribution = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
               <motion.div
-                className="w-full bg-blue-500 rounded-full h-full origin-bottom"
+                className="w-full bg-blue rounded-full h-full origin-bottom"
                 initial={{ scaleY: 0 }}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: true }}

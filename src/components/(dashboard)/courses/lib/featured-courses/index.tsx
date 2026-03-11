@@ -109,7 +109,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
 
             <div className="flex flex-wrap gap-6">
               <div className="flex items-center gap-2">
-                <Clock size={20} className="text-blue-500" />
+                <Clock size={20} className="text-blue" />
                 <span>{courses[currentIndex].duration}</span>
               </div>
               <div className="flex items-center gap-2">
@@ -160,7 +160,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
               </div>
               <div className="h-2 bg-neutral-900/10 dark:bg-neutral-800/30 rounded-full overflow-hidden">
                 <motion.div
-                  className="h-full bg-blue-500 rounded-full"
+                  className="h-full bg-blue rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${courses[currentIndex].progress}%` }}
                   transition={{ duration: 1 }}
@@ -204,7 +204,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
             onClick={() => setCurrentIndex(index)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? 'w-6 bg-blue-500'
+                ? 'w-6 bg-blue'
                 : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
             }`}
           />

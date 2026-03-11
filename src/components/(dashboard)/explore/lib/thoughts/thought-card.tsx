@@ -16,7 +16,7 @@ interface ThoughtCardProps {
 
 const IconComponent = ({ type, variant }: { type: string; variant: 'Linear' | 'Bulk' }) => {
   const props = {
-    size: '24',
+    size: '20',
     variant: variant,
     className: 'transition-all duration-300',
   };
@@ -49,24 +49,20 @@ const ThoughtCard = ({
 
   return (
     <motion.div
-      className="group flex items-center gap-3 p-3 rounded-lg hover:bg-neutral-900/10 dark:hover:bg-neutral-800/50 transition-all duration-300 cursor-pointer"
-      whileHover={{ x: 10 }}
+      className="group flex items-center gap-3 p-3 rounded-xl hover:bg-white dark:hover:bg-neutral-800/50 border border-transparent hover:border-neutral-200/50 dark:hover:border-neutral-700/30 transition-all duration-300 cursor-pointer"
+      whileHover={{ x: 4, transition: { duration: 0.2 } }}
       variants={{
-        hidden: { opacity: 0, x: -20 },
+        hidden: { opacity: 0, x: -15 },
         show: { opacity: 1, x: 0 },
       }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onClick={() =>
-        // window.open(window.location.origin + `/blog/${id}`, '_blank', 'noopener,noreferrer')
         window.open(window.location.origin + `/blog/${id}`, 'noopener,noreferrer')
       }
     >
-      <motion.div
-        className="h-10 w-10 rounded-lg bg-neutral-900/10 dark:bg-neutral-800 flex items-center justify-center overflow-hidden flex-shrink-0"
-        whileHover={{ scale: 1.05 }}
-      >
+      <div className="h-9 w-9 rounded-lg bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center overflow-hidden flex-shrink-0">
         <div className="relative">
           <motion.div
             initial={{ opacity: 1 }}
@@ -84,24 +80,22 @@ const ThoughtCard = ({
             <IconComponent type={iconType} variant="Bulk" />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
 
       <div className={`flex-1 min-w-0 ${isMobile ? 'pr-2' : ''}`}>
         <h3 className="font-medium text-sm mb-0.5 truncate">{title}</h3>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+        <div className="flex items-center gap-2 text-[11px] text-neutral-400 dark:text-neutral-500">
           <span>{category}</span>
-          <span className="h-1 w-1 rounded-full bg-muted-foreground"></span>
+          <span className="h-1 w-1 rounded-full bg-neutral-300 dark:bg-neutral-600" />
           <span>{readTime}</span>
         </div>
       </div>
 
-      <motion.div
+      <div
         className={`${isMobile ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-opacity duration-300 flex-shrink-0`}
-        whileHover={{ x: 5 }}
-        onClick={() => window.open(window.location.origin + `/blog/${id}`, 'noopener,noreferrer')}
       >
-        <i className="ri-arrow-right-line text-sm"></i>
-      </motion.div>
+        <i className="ri-arrow-right-line text-sm text-neutral-400" />
+      </div>
     </motion.div>
   );
 };

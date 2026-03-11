@@ -255,7 +255,7 @@ const Boutique = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <ShoppingBag variant="Bulk" className="text-blue-500" size={20} />
+          <ShoppingBag variant="Bulk" className="text-blue" size={20} />
           <span className="text-sm">Developer Merchandise</span>
         </motion.div>
 
@@ -295,7 +295,7 @@ const Boutique = () => {
           Subscribe to receive updates about new products and exclusive offers.
         </p>
         <motion.button
-          className="px-6 py-3 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+          className="px-6 py-3 rounded-full bg-blue text-white hover:bg-blue-600 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

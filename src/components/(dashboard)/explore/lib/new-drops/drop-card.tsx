@@ -21,6 +21,7 @@ const item = {
     y: 0,
     transition: {
       duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -33,7 +34,8 @@ const DropCard = ({ title, description, count, image, href }: DropCardProps) => 
     <motion.div
       variants={item}
       onClick={() => push(href)}
-      className="group cursor-pointer relative overflow-hidden rounded-lg bg-neutral-900/10 dark:bg-neutral-800/50 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/80 transition-all duration-300"
+      className="group cursor-pointer relative overflow-hidden rounded-2xl bg-neutral-50 dark:bg-neutral-800/40 border border-neutral-200/60 dark:border-neutral-800/60 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300"
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
     >
       <div className={`relative ${isMobile ? 'h-[160px]' : 'h-[200px]'} overflow-hidden`}>
         {/* Blurred background image */}
@@ -44,7 +46,7 @@ const DropCard = ({ title, description, count, image, href }: DropCardProps) => 
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             filter: 'blur(20px) brightness(0.7)',
-            transform: 'scale(1.1)', // Slightly larger to avoid blur edges
+            transform: 'scale(1.1)',
           }}
         />
 
@@ -55,23 +57,25 @@ const DropCard = ({ title, description, count, image, href }: DropCardProps) => 
             alt={title}
             width={250}
             height={250}
-            className="object-contain h-full max-w-full transition-transform duration-300 group-hover:scale-105"
+            className="object-contain h-full max-w-full transition-transform duration-500 ease-out group-hover:scale-110"
           />
         </div>
       </div>
 
-      <div className={`${isMobile ? 'p-3' : 'p-6'} space-y-2`}>
+      <div className={`${isMobile ? 'p-4' : 'p-6'} space-y-2`}>
         <div className="flex justify-between items-start">
-          <h3 className={`${isMobile ? 'text-base' : 'text-xl'} font-semibold`}>{title}</h3>
-          <motion.span
-            className="text-sm text-muted-foreground bg-neutral-900/20 dark:bg-neutral-900/50 px-3 py-1 rounded-full"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+          <h3 className={`${isMobile ? 'text-base' : 'text-lg'} font-semibold`}>{title}</h3>
+          <span className="text-xs font-medium text-neutral-500 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800 px-3 py-1 rounded-full">
             {count}
-          </motion.span>
+          </span>
         </div>
-        <p className="text-muted-foreground text-sm">{description}</p>
+        <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">
+          {description}
+        </p>
+        <div className="flex items-center gap-1 text-sm font-medium text-blue pt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <span>View</span>
+          <i className="ri-arrow-right-line text-xs group-hover:translate-x-1 transition-transform duration-300" />
+        </div>
       </div>
     </motion.div>
   );
