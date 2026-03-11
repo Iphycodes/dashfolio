@@ -9,6 +9,7 @@ export type Nav = {
 };
 
 const menuNavItem: NavItem[] = [
+  { key: 'home', label: 'Home', icon: <i className="ri-home-4-line"></i> },
   { key: 'explore', label: 'Explore', icon: <i className="ri-compass-3-line"></i> },
   { key: 'about', label: 'About', icon: <i className="ri-user-line"></i> },
   { key: 'projects', label: 'Projects', icon: <i className="ri-task-line"></i> },

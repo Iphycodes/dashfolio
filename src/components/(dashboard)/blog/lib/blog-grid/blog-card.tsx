@@ -50,7 +50,7 @@ const BlogCard = ({ post, index, isMobile }: BlogCardProps) => {
           {/* Content */}
           <div className="p-6 space-y-4">
             <h3
-              className={`font-semibold ${isMobile ? 'text-lg' : 'text-xl'} line-clamp-2 group-hover:text-blue-500 transition-colors`}
+              className={`font-semibold ${isMobile ? 'text-lg' : 'text-xl'} line-clamp-2 group-hover:text-blue transition-colors`}
             >
               {post.title}
             </h3>

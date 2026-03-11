@@ -170,7 +170,7 @@ const ServiceShowcase = ({ services, isMobile, isTablet }: ServiceShowcaseProps)
             onClick={() => setCurrentIndex(index)}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
-                ? 'w-6 bg-blue-500'
+                ? 'w-6 bg-blue'
                 : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
             }`}
           />

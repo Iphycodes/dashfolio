@@ -1,4 +1,3 @@
-// src/components/explore/lib/service-cards/service-card.tsx
 'use client';
 
 import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
@@ -16,10 +15,9 @@ interface ServiceCardProps {
   href: string;
 }
 
-// Icon mapping component
 const IconComponent = ({ type, variant }: { type: string; variant: 'Linear' | 'Bulk' }) => {
   const props = {
-    size: '32',
+    size: '28',
     variant: variant,
     className: 'transition-all duration-300',
   };
@@ -45,20 +43,17 @@ const ServiceCard = ({ title, description, iconType, items, action, href }: Serv
 
   return (
     <motion.div
-      className="p-6 rounded-xl bg-neutral-900/10 dark:bg-neutral-800/50 space-y-6 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/80 transition-all duration-300"
-      whileHover={{ y: -5 }}
+      className="p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-800/40 border border-neutral-200/60 dark:border-neutral-800/60 space-y-6 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300"
+      whileHover={{ y: -4, transition: { duration: 0.25 } }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <div className="space-y-6">
-        <motion.div
-          className="h-14 w-14 rounded-lg bg-neutral-900/10 dark:bg-neutral-800 flex items-center justify-center overflow-hidden"
-          whileHover={{ scale: 1.05, rotate: 5 }}
-        >
+      <div className="space-y-5">
+        <div className="h-12 w-12 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200/50 dark:border-neutral-700/50 flex items-center justify-center overflow-hidden shadow-sm">
           <div className="relative">
             <motion.div
               initial={{ opacity: 1 }}
@@ -76,24 +71,26 @@ const ServiceCard = ({ title, description, iconType, items, action, href }: Serv
               <IconComponent type={iconType} variant="Bulk" />
             </motion.div>
           </div>
-        </motion.div>
-
-        <div className="space-y-2">
-          <h3 className="text-xl font-semibold">{title}</h3>
-          <p className="text-muted-foreground text-sm">{description}</p>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold">{title}</h3>
+          <p className="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        <div className="space-y-2.5">
           {items.map((item, index) => (
             <motion.div
               key={index}
-              className="flex items-center gap-2 text-sm text-muted-foreground"
-              initial={{ opacity: 0, x: -20 }}
+              className="flex items-center gap-2.5 text-sm text-neutral-600 dark:text-neutral-400"
+              initial={{ opacity: 0, x: -15 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              transition={{ duration: 0.3, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              <i className="ri-check-line text-green-500"></i>
+              <i className="ri-check-line text-green-500 text-base" />
               <span>{item}</span>
             </motion.div>
           ))}
@@ -101,14 +98,13 @@ const ServiceCard = ({ title, description, iconType, items, action, href }: Serv
       </div>
 
       <div
-        // type="text"
-        className={`group flex items-center gap-2 hover:gap-3 transition-all duration-300 cursor-pointer ${
+        className={`group flex items-center gap-2 text-sm font-medium text-blue cursor-pointer hover:gap-3 transition-all duration-300 ${
           isMobile ? 'w-full justify-center' : ''
         }`}
         onClick={() => push(`/${href}`)}
       >
         <span>{action}</span>
-        <i className="ri-arrow-right-line group-hover:transform group-hover:translate-x-1 transition-transform duration-300"></i>
+        <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300" />
       </div>
     </motion.div>
   );

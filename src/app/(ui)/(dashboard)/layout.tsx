@@ -1,4 +1,3 @@
-// components/Layout.tsx
 'use client';
 
 import React, { useContext, useEffect } from 'react';
@@ -33,7 +32,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         collapsedWidth={isMobile ? 0 : 80}
         collapsed={toggleSider}
         onCollapse={toggleCollapse}
-        className="transition-all duration-300 !fixed !top-0 !left-0 !z-100"
+        className="transition-all duration-500 ease-in-out !fixed !top-0 !left-0 !z-100"
         style={{
           background: 'transparent',
           zIndex: 100,
@@ -44,7 +43,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Main Content */}
       <AntdLayout
-        className={`transition-all duration-300 !bg-background !min-h-screen ${isMobile ? '!m-l-0' : '!m-l-[220px]'}`}
+        className="transition-all duration-500 ease-in-out !bg-background !min-h-screen"
         style={{ marginLeft: isMobile ? 10 : toggleSider ? 80 : 220 }}
         onClick={() => {
           if (isMobile) {
@@ -58,7 +57,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               setToggleSider(true);
             }
           }}
-          className={`text-black dark:text-white ${isMobile ? 'p-3' : 'p-6'}`}
+          className={`text-neutral-900 dark:text-white ${isMobile ? 'p-3' : 'p-6 pt-8'}`}
         >
           <Row className="w-full">
             <Col sm={24} className="mx-auto">

@@ -82,7 +82,7 @@ const CourseGrid = ({ courses, isMobile, isTablet }: CourseGridProps) => {
               onClick={() => setActiveFilter(category)}
               className={`px-4 py-2 rounded-full text-sm transition-colors ${
                 activeFilter === category
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-blue text-white'
                   : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
               }`}
               whileHover={{ scale: 1.05 }}

@@ -77,7 +77,7 @@ const Stacks = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Command variant="Bulk" className="text-blue-500" size={isMobile ? 16 : 20} />
+          <Command variant="Bulk" className="text-blue" size={isMobile ? 16 : 20} />
           <span>Technical Expertise</span>
         </motion.div>
 

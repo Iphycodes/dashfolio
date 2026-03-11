@@ -1,4 +1,3 @@
-// src/components/layout/footer/index.tsx
 'use client';
 
 import { motion } from 'framer-motion';
@@ -7,10 +6,11 @@ import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 import { getCurrentTime, isAvailable, availabilityTimes } from './utils';
 import { Col, Row } from 'antd';
 
-const footerLinks: any = [
+const footerLinks = [
   {
     title: 'Index',
     links: [
+      { name: 'Home', href: '/' },
       { name: 'Explore', href: '/explore' },
       { name: 'About', href: '/about' },
       { name: 'Projects', href: '/projects' },
@@ -21,16 +21,16 @@ const footerLinks: any = [
     title: 'Resources',
     links: [
       { name: 'Blog', href: '/blog' },
-      { name: 'Stack', href: '/stack' },
-      { name: 'Courses', href: '/courses' },
+      { name: 'Stacks', href: '/stacks' },
+      { name: 'Experience', href: '/experience' },
     ],
   },
   {
     title: 'Connect',
     links: [
-      { name: 'LinkedIn', href: 'https://linkedin.com', icon: 'ri-linkedin-fill' },
-      { name: 'GitHub', href: 'https://github.com', icon: 'ri-github-fill' },
-      { name: 'Twitter', href: 'https://twitter.com', icon: 'ri-twitter-fill' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/in/ifeanyi-ogbonna-ba64b61a5/', icon: 'ri-linkedin-fill' },
+      { name: 'GitHub', href: 'https://github.com/iphycodes', icon: 'ri-github-fill' },
+      { name: 'Twitter', href: 'https://x.com/IfeanyiOdogwu_', icon: 'ri-twitter-x-fill' },
     ],
   },
 ];
@@ -50,21 +50,24 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="border-t border-neutral-800/50 bg-neutral-800 dark:bg-neutral-900/20">
+    <footer className="border-t border-neutral-200/50 dark:border-neutral-800/50 bg-neutral-50 dark:bg-[#0a0a0a]">
       <Row className="w-full">
         <Col lg={16} className="mx-auto">
-          <div className="py-20">
+          <div className={`${isMobile ? 'py-12 px-4' : 'py-16'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               {/* Time and Availability */}
               <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
                 className="space-y-4"
               >
-                <h2 className="text-6xl md:text-7xl font-mono text-white">
+                <h2 className={`${isMobile ? 'text-4xl' : 'text-6xl'} font-mono text-neutral-800 dark:text-white`}>
                   {time}
-                  <span className="text-neutral-500 ml-2">{availabilityTimes.timezone}</span>
+                  <span className="text-neutral-400 dark:text-neutral-600 ml-2 text-[0.5em]">
+                    {availabilityTimes.timezone}
+                  </span>
                 </h2>
                 <div className="flex items-center gap-2">
                   <div
@@ -72,26 +75,29 @@ const Footer = () => {
                       available ? 'bg-green-500' : 'bg-yellow-500'
                     } animate-pulse`}
                   />
-                  <p className="text-sm text-neutral-400">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400">
                     {available ? availabilityTimes.availableStatus : availabilityTimes.busyStatus}
                   </p>
                 </div>
               </motion.div>
 
               {/* Links */}
-              {/* <div className={`grid ${isMobile ? 'grid-cols-2' : 'grid-cols-3'} gap-8`}> */}
-              <div className={`${isMobile ? ' grid grid-cols-2' : 'flex justify-between'} gap-8`}>
-                {footerLinks.map((section: any) => (
+              <div className={`${isMobile ? 'grid grid-cols-2' : 'flex justify-between'} gap-8`}>
+                {footerLinks.map((section) => (
                   <div key={section.title} className="space-y-4">
-                    <h3 className="text-sm font-medium text-neutral-400">{section.title}</h3>
-                    <ul className="space-y-3">
-                      {section.links?.map((link: any) => (
+                    <h3 className="text-[11px] font-semibold tracking-widest uppercase text-neutral-400 dark:text-neutral-600">
+                      {section.title}
+                    </h3>
+                    <ul className="space-y-2.5">
+                      {section.links?.map((link) => (
                         <li key={link.name}>
                           <a
                             href={link.href}
-                            className="text-sm text-neutral-300 hover:text-white transition-colors flex items-center gap-2"
+                            target={link.href.startsWith('http') ? '_blank' : undefined}
+                            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors flex items-center gap-2"
                           >
-                            {link?.icon && <i className={link?.icon} />}
+                            {'icon' in link && link.icon && <i className={link.icon} />}
                             {link.name}
                           </a>
                         </li>
@@ -103,9 +109,9 @@ const Footer = () => {
             </div>
 
             {/* Copyright */}
-            <div className="mt-12 pt-8 border-t border-neutral-800/50">
-              <p className="text-sm text-neutral-500 text-center">
-                © {new Date().getFullYear()} Ifeanyi Emmanuel. All rights reserved.
+            <div className="mt-12 pt-8 border-t border-neutral-200/50 dark:border-neutral-800/50">
+              <p className="text-xs text-neutral-400 dark:text-neutral-600 text-center">
+                &copy; {new Date().getFullYear()} Ifeanyi Emmanuel. All rights reserved.
               </p>
             </div>
           </div>

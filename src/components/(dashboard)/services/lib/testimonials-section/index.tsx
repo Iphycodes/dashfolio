@@ -136,7 +136,7 @@ const TestimonialsSection = ({ isMobile }: TestimonialsSectionProps) => {
                   <div className="text-sm text-muted-foreground">
                     {testimonials[activeIndex].role} at {testimonials[activeIndex].company}
                   </div>
-                  <div className="text-sm font-medium text-blue-500">
+                  <div className="text-sm font-medium text-blue">
                     {testimonials[activeIndex].project}
                   </div>
                 </div>
@@ -153,7 +153,7 @@ const TestimonialsSection = ({ isMobile }: TestimonialsSectionProps) => {
               onClick={() => setActiveIndex(index)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 index === activeIndex
-                  ? 'w-6 bg-blue-500'
+                  ? 'w-6 bg-blue'
                   : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
               }`}
             />

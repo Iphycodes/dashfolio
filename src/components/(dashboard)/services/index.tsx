@@ -103,7 +103,7 @@ const Services = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Code1 variant="Bulk" className="text-blue-500" size={20} />
+          <Code1 variant="Bulk" className="text-blue" size={20} />
           <span className="text-sm">Professional Services</span>
         </motion.div>
 

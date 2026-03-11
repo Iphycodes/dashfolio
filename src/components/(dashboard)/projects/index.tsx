@@ -130,7 +130,7 @@ const Projects = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <Code1 variant="Bulk" className="text-blue-500" size={20} />
+          <Code1 variant="Bulk" className="text-blue" size={20} />
           <span className="text-sm">Featured Work</span>
         </motion.div>
 
@@ -140,7 +140,8 @@ const Projects = () => {
         <p
           className={`text-muted-foreground max-w-2xl mx-auto ${isMobile ? 'text-sm' : 'text-base'}`}
         >
-          Exploring the intersection of design and technology through some of my innovative web solutions.
+          Exploring the intersection of design and technology through some of my innovative web
+          solutions.
         </p>
       </motion.div>
 
