@@ -82,7 +82,7 @@ const BlogGrid = ({ posts, isMobile, isTablet }: BlogGridProps) => {
               className={`px-4 py-2 rounded-full text-sm transition-colors ${
                 filter !== category
                   ? ''
-                  : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
+                  : 'bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -101,7 +101,7 @@ const BlogGrid = ({ posts, isMobile, isTablet }: BlogGridProps) => {
             setSearchQuery(e.target.value);
             setCurrentPage(1);
           }}
-          className="w-full sm:w-64 px-4 py-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 focus:outline-none focus:ring-2 focus:ring-blue"
+          className="w-full sm:w-64 px-4 py-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 focus:outline-none focus:ring-2 focus:ring-blue"
         />
       </div>
       {/* Posts Grid */}
@@ -131,8 +131,8 @@ const BlogGrid = ({ posts, isMobile, isTablet }: BlogGridProps) => {
               onClick={() => setCurrentPage(index + 1)}
               className={`h-8 w-8 rounded-full flex items-center justify-center text-sm transition-colors ${
                 currentPage === index + 1
-                  ? 'bg-blue text-white'
-                  : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
+                  ? 'bg-blue text-background'
+                  : 'bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50'
               }`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

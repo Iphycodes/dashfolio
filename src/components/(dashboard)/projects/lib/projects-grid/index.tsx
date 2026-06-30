@@ -40,7 +40,7 @@ const ProjectCard = ({
   return (
     <motion.div layout className="group relative">
       <motion.div
-        className="rounded-xl overflow-hidden border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10"
+        className="rounded-xl overflow-hidden border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10"
         whileHover={{ y: -5 }}
         onHoverStart={() => setHoveredId(project.id)}
         onHoverEnd={() => setHoveredId(null)}

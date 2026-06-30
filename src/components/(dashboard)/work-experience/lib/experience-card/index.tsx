@@ -39,7 +39,7 @@ const ExperienceCard = ({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      <div className="rounded-xl border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 p-8 space-y-6">
+      <div className="rounded-xl border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 p-8 space-y-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
           <div className="space-y-1">
@@ -85,7 +85,7 @@ const ExperienceCard = ({
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 + idx * 0.1 }}
               >
-                <i className="ri-check-line text-green-500 mt-1" />
+                <i className="ri-check-line text-neutral-900 dark:text-white mt-1" />
                 <span className={`text-muted-foreground ${isMobile ? 'text-sm' : 'text-base'}`}>
                   {achievement}
                 </span>
@@ -102,7 +102,7 @@ const ExperienceCard = ({
               <Badge
                 key={tech}
                 variant="outline"
-                className="bg-neutral-900/10 dark:bg-neutral-800/30"
+                className="bg-neutral-50 dark:bg-neutral-800/30"
               >
                 {tech}
               </Badge>

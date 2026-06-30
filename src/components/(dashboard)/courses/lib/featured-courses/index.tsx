@@ -69,7 +69,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
       <div className="flex justify-end gap-2 mb-6">
         <motion.button
           onClick={handlePrev}
-          className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+          className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -77,7 +77,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
         </motion.button>
         <motion.button
           onClick={handleNext}
-          className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+          className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -113,7 +113,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
                 <span>{courses[currentIndex].duration}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Book1 size={20} className="text-green-500" />
+                <Book1 size={20} className="text-neutral-900 dark:text-white" />
                 <span>{courses[currentIndex].lessons} lessons</span>
               </div>
               <div className="flex items-center gap-2">
@@ -135,7 +135,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
             </div>
 
             {/* Instructor */}
-            <div className="flex items-center gap-4 p-4 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30">
+            <div className="flex items-center gap-4 p-4 rounded-lg bg-neutral-50 dark:bg-neutral-800/30">
               <div className="relative h-12 w-12 rounded-full overflow-hidden">
                 <Image
                   src={courses[currentIndex].instructor.avatar}
@@ -158,7 +158,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
                 <span>Course Progress</span>
                 <span>{courses[currentIndex].progress}%</span>
               </div>
-              <div className="h-2 bg-neutral-900/10 dark:bg-neutral-800/30 rounded-full overflow-hidden">
+              <div className="h-2 bg-neutral-50 dark:bg-neutral-800/30 rounded-full overflow-hidden">
                 <motion.div
                   className="h-full bg-blue rounded-full"
                   initial={{ width: 0 }}
@@ -205,7 +205,7 @@ const FeaturedCourses = ({ courses, isMobile, isTablet }: FeaturedCoursesProps) 
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
                 ? 'w-6 bg-blue'
-                : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
+                : 'w-1.5 bg-neutral-100 dark:bg-neutral-800/50'
             }`}
           />
         ))}

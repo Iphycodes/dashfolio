@@ -114,7 +114,7 @@ const Certifications = () => {
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/20 dark:bg-neutral-800/30 mb-4"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/30 mb-4"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
@@ -140,13 +140,13 @@ const Certifications = () => {
           <div className="flex items-center gap-2">
             <button
               onClick={() => scrollPrev()}
-              className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+              className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
             >
               <i className="ri-arrow-left-s-line text-xl" />
             </button>
             <button
               onClick={() => scrollNext()}
-              className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+              className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
             >
               <i className="ri-arrow-right-s-line text-xl" />
             </button>
@@ -218,7 +218,7 @@ const Certifications = () => {
 
 const StatCard = ({ number, label }: { number: string; label: string }) => (
   <motion.div
-    className="p-6 rounded-xl bg-neutral-900/10 dark:bg-neutral-800/30 text-center space-y-2"
+    className="p-6 rounded-xl bg-neutral-50 dark:bg-neutral-800/30 text-center space-y-2"
     whileHover={{ scale: 1.02 }}
     transition={{ duration: 0.2 }}
   >

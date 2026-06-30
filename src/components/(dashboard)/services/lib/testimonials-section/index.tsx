@@ -154,7 +154,7 @@ const TestimonialsSection = ({ isMobile }: TestimonialsSectionProps) => {
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 index === activeIndex
                   ? 'w-6 bg-blue'
-                  : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
+                  : 'w-1.5 bg-neutral-100 dark:bg-neutral-800/50'
               }`}
             />
           ))}

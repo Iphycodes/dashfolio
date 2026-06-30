@@ -10,7 +10,6 @@ import { mediaSize, useMediaQuery } from '@/_shared/components/responsiveness';
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Projects', href: '/projects' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Services', href: '/services' },
 ];
 
@@ -86,16 +85,7 @@ const HomePage = () => {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-blue/30">
-              <Image
-                src="/asset/imgs/myself-10.jpeg"
-                alt="Ifeanyi Emmanuel"
-                width={36}
-                height={36}
-                className="object-cover w-full h-full"
-              />
-            </div>
-            <span className="font-semibold text-sm tracking-tight">Ifeanyi Emmanuel</span>
+            <span className="font-bold text-xl tracking-tight">Ify Dev</span>
           </motion.div>
 
           {!isMobile && (
@@ -129,7 +119,7 @@ const HomePage = () => {
             )}
             <motion.button
               onClick={() => router.push('/explore')}
-              className={`bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 ${isMobile ? 'px-4 py-2 text-xs' : 'px-5 py-2.5 text-sm'} rounded-full font-medium hover:opacity-90 transition-opacity`}
+              className={`bg-accent text-accent-foreground ${isMobile ? 'px-4 py-2 text-xs' : 'px-5 py-2.5 text-sm'} rounded-full font-medium hover:opacity-90 transition-opacity`}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -143,103 +133,109 @@ const HomePage = () => {
       <motion.section
         ref={heroRef}
         style={{ opacity: heroOpacity, scale: heroScale }}
-        className={`min-h-screen flex items-center justify-center relative ${isMobile ? 'pt-24 px-5' : 'pt-20 px-8'}`}
+        className={`relative min-h-screen flex items-center overflow-hidden bg-neutral-100 dark:bg-transparent ${
+          isMobile ? 'pt-24 pb-12 px-5' : 'pt-28 px-8'
+        }`}
       >
-        {/* Subtle gradient orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue/5 dark:bg-blue/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/5 dark:bg-purple-500/8 rounded-full blur-[120px]" />
-        </div>
+        {/* Lime glow — sits behind the text and image */}
+        <div className="pointer-events-none absolute top-1/2 right-[6%] z-0 h-[70%] w-[45%] -translate-y-1/2 rounded-full bg-accent/25 dark:bg-accent/15 blur-[100px]" />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          {/* Status badge */}
-          <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/80 border border-neutral-200 dark:border-neutral-700/50 mb-8"
-            initial={{ opacity: 0, y: 20, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-xs font-medium text-neutral-600 dark:text-neutral-300">
-              Available for new projects
-            </span>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.h1
-            className={`font-extrabold tracking-tight leading-[1.1] mb-6 ${
-              isMobile ? 'text-4xl' : 'text-7xl'
-            }`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <span className="block">Crafting Digital</span>
-            <span className="block bg-gradient-to-r from-blue via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Experiences
-            </span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            className={`text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed ${
-              isMobile ? 'text-base px-2' : 'text-lg'
-            }`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            I&apos;m Ifeanyi Emmanuel, a Software Engineer specializing in building exceptional,
-            performant, and accessible web applications with modern technologies.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            className={`flex items-center justify-center gap-4 ${isMobile ? 'flex-col w-full' : ''}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.button
-              onClick={() => router.push('/explore')}
-              className={`bg-blue-gradient text-white font-medium rounded-full flex items-center justify-center gap-2 group ${
-                isMobile ? 'w-full px-6 py-3.5 text-sm' : 'px-8 py-4 text-base'
-              }`}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-4 lg:grid-cols-12 lg:gap-8">
+          {/* Left — text */}
+          <div className="relative z-20 order-2 text-center pt-8 lg:order-1 lg:col-span-6 lg:pt-24 lg:text-left">
+            {/* Eyebrow */}
+            <motion.p
+              className="text-base sm:text-lg font-semibold text-neutral-500 dark:text-neutral-400 mb-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              style={{ letterSpacing: '7px' }}
             >
-              Explore My Work
-              <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300" />
-            </motion.button>
-            <motion.button
-              onClick={() => router.push('/about')}
-              className={`bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 font-medium rounded-full border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors ${
-                isMobile ? 'w-full px-6 py-3.5 text-sm' : 'px-8 py-4 text-base'
-              }`}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Learn More About Me
-            </motion.button>
-          </motion.div>
+              <span className='ml-2'>Hi, I&apos;m Ifeanyi the Developer</span>
+            </motion.p>
 
-          {/* Scroll indicator */}
-          {!isMobile && (
+            {/* Big display heading */}
+            <motion.h1
+              className="font-display uppercase tracking-normal leading-[0.9] text-[#1a1a1a] dark:text-white text-7xl sm:text-8xl lg:text-[8rem] lg:whitespace-nowrap"
+              style={{
+                WebkitTextStroke: '0.05em currentColor',
+                paintOrder: 'stroke fill',
+                letterSpacing: '-5px',
+              }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+              }}
+              initial="hidden"
+              animate="visible"
+            >
+              {['Fullstack', 'Developer'].map((line) => (
+                <motion.span
+                  key={line}
+                  className="block font-display"
+                  variants={{
+                    hidden: { y: 30, opacity: 0 },
+                    visible: {
+                      y: 0,
+                      opacity: 1,
+                      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+                    },
+                  }}
+                >
+                  {line}
+                </motion.span>
+              ))}
+            </motion.h1>
+
+            {/* CTA Buttons */}
             <motion.div
-              className="absolute bottom-12 left-1/2 -translate-x-1/2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
+              className={`mt-10 flex items-center gap-4 ${
+                isMobile ? 'flex-col w-full' : 'justify-center lg:justify-start'
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
             >
-              <motion.div
-                className="w-6 h-10 rounded-full border-2 border-neutral-300 dark:border-neutral-600 flex items-start justify-center p-1.5"
-                animate={{ y: [0, 8, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              <motion.button
+                onClick={() => router.push('/projects')}
+                className={`bg-accent text-accent-foreground font-semibold rounded-full flex items-center justify-center gap-2 group hover:opacity-90 transition-opacity ${
+                  isMobile ? 'w-full px-6 py-3.5 text-sm' : 'px-8 py-4 text-base'
+                }`}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
               >
-                <div className="w-1 h-2 rounded-full bg-neutral-400 dark:bg-neutral-500" />
-              </motion.div>
+                Explore My Work
+                <i className="ri-arrow-right-line group-hover:translate-x-1 transition-transform duration-300" />
+              </motion.button>
+              <motion.button
+                onClick={() => router.push('/contact')}
+                className={`bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-200 font-medium rounded-full border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors ${
+                  isMobile ? 'w-full px-6 py-3.5 text-sm' : 'px-8 py-4 text-base'
+                }`}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Contact Me
+              </motion.button>
             </motion.div>
-          )}
+          </div>
+
+          {/* Right — portrait (in front of the text; transparent PNG so text shows through) */}
+          <motion.div
+            className="order-1 relative z-30 h-[52vh] w-full sm:h-[66vh] lg:order-2 lg:col-span-6 lg:h-screen pointer-events-none"
+            initial={{ opacity: 0, scale: 0.97, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Image
+              src="/asset/imgs/myself-front-image.png"
+              alt="Ifeanyi Emmanuel — Software Developer"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="relative z-10 object-contain object-center"
+            />
+          </motion.div>
         </div>
       </motion.section>
 
@@ -262,7 +258,7 @@ const HomePage = () => {
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
                 <div
-                  className={`font-bold bg-gradient-to-r from-blue to-cyan-400 bg-clip-text text-transparent ${isMobile ? 'text-3xl' : 'text-4xl'} mb-2`}
+                  className={`font-bold text-neutral-900 dark:text-white ${isMobile ? 'text-3xl' : 'text-4xl'} mb-2`}
                 >
                   {stat.value}
                 </div>
@@ -302,40 +298,32 @@ const HomePage = () => {
           >
             {[
               {
-                icon: 'ri-code-s-slash-line',
-                title: 'Frontend Development',
-                desc: 'Building responsive, performant interfaces with React, Next.js, and TypeScript.',
-                color: 'from-blue/10 to-blue/5 dark:from-blue/20 dark:to-blue/5',
-                iconColor: 'text-blue',
+                icon: 'ri-stack-line',
+                title: 'Full-Stack Development',
+                desc: 'End-to-end products spanning frontend and backend — React, Next.js, Node.js, and modern databases.',
               },
               {
-                icon: 'ri-server-line',
-                title: 'Backend Development',
-                desc: 'Creating robust APIs and services with Node.js, Nest.js, and modern databases.',
-                color:
-                  'from-emerald-500/10 to-emerald-500/5 dark:from-emerald-500/20 dark:to-emerald-500/5',
-                iconColor: 'text-emerald-500',
+                icon: 'ri-global-line',
+                title: 'Website Development',
+                desc: 'Fast, responsive, and accessible websites and landing pages built with performance and SEO in mind.',
               },
               {
                 icon: 'ri-smartphone-line',
-                title: 'Full-Stack Solutions',
-                desc: 'End-to-end product development from ideation to deployment and maintenance.',
-                color:
-                  'from-purple-500/10 to-purple-500/5 dark:from-purple-500/20 dark:to-purple-500/5',
-                iconColor: 'text-purple-500',
+                title: 'App / Software Development',
+                desc: 'Robust web and mobile applications and custom software tailored to real business needs.',
               },
             ].map((service, i) => (
               <motion.div
                 key={service.title}
-                className={`p-8 rounded-2xl bg-gradient-to-br ${service.color} border border-neutral-200/50 dark:border-neutral-800/50 backdrop-blur-sm`}
+                className={`p-8 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800`}
                 variants={fadeUp}
                 custom={i}
                 whileHover={{ y: -6, transition: { duration: 0.25 } }}
               >
                 <div
-                  className={`w-12 h-12 rounded-xl bg-white dark:bg-neutral-800 flex items-center justify-center mb-5 shadow-sm`}
+                  className={`w-12 h-12 rounded-xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-5`}
                 >
-                  <i className={`${service.icon} text-xl ${service.iconColor}`} />
+                  <i className={`${service.icon} text-xl text-neutral-900 dark:text-white`} />
                 </div>
                 <h3 className="font-semibold text-lg mb-3">{service.title}</h3>
                 <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
@@ -362,23 +350,27 @@ const HomePage = () => {
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap justify-center gap-3"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
+            className="relative overflow-hidden"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            {techStack.map((tech, i) => (
-              <motion.span
-                key={tech}
-                className="px-5 py-2.5 rounded-full text-sm font-medium bg-neutral-100 dark:bg-neutral-800/80 text-neutral-600 dark:text-neutral-300 border border-neutral-200/50 dark:border-neutral-700/50 hover:border-blue/30 hover:bg-blue-50 dark:hover:bg-blue/10 transition-colors cursor-default"
-                variants={fadeUp}
-                custom={i}
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                {tech}
-              </motion.span>
-            ))}
+            {/* edge fades */}
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white dark:from-[#0a0a0a] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white dark:from-[#0a0a0a] to-transparent" />
+
+            {/* seamless marquee — duplicated set, scrolls infinitely, pauses on hover */}
+            <div className="flex w-max animate-scroll gap-3">
+              {[...techStack, ...techStack].map((tech, i) => (
+                <span
+                  key={`${tech}-${i}`}
+                  className="whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-800"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -394,9 +386,7 @@ const HomePage = () => {
         >
           <h2 className={`font-bold mb-6 ${isMobile ? 'text-3xl' : 'text-5xl'}`}>
             Let&apos;s Build Something
-            <span className="block bg-gradient-to-r from-blue to-cyan-400 bg-clip-text text-transparent">
-              Amazing Together
-            </span>
+            <span className="block text-neutral-800 dark:text-neutral-200">Amazing Together</span>
           </h2>
           <p className="text-neutral-500 dark:text-neutral-400 mb-10 max-w-lg mx-auto leading-relaxed">
             I&apos;m always open to discussing new projects, creative ideas, or opportunities to be
@@ -413,7 +403,7 @@ const HomePage = () => {
                   'noopener,noreferrer'
                 )
               }
-              className={`bg-blue-gradient text-white font-medium rounded-full flex items-center justify-center gap-2 ${
+              className={`bg-accent text-accent-foreground font-medium rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity ${
                 isMobile ? 'w-full px-6 py-3.5 text-sm' : 'px-8 py-4 text-base'
               }`}
               whileHover={{ scale: 1.03 }}
@@ -424,7 +414,7 @@ const HomePage = () => {
             </motion.button>
             <motion.button
               onClick={() => router.push('/explore')}
-              className={`bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 font-medium rounded-full border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors flex items-center justify-center gap-2 ${
+              className={`bg-neutral-100 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-200 font-medium rounded-full border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 ${
                 isMobile ? 'w-full px-6 py-3.5 text-sm' : 'px-8 py-4 text-base'
               }`}
               whileHover={{ scale: 1.03 }}

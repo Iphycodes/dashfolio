@@ -59,7 +59,7 @@ const Education = () => {
   const isTablet = useMediaQuery(mediaSize.tablet);
 
   return (
-    <div className="!mt-[100px]">
+    <div className="!mt-12">
       {isMobile && (
         <div className={`h-full`}>
           <div className="flex flex-col custom-scrollbar-inner">
@@ -100,7 +100,7 @@ const Education = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 overflow-hidden h-[800px]"
+        className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden h-[800px]"
       >
         <div className={`grid ${isTablet ? 'grid-cols-1' : 'grid-cols-5'} h-full`}>
           {/* Content Section */}

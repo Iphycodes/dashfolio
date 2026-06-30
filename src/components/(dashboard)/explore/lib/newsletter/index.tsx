@@ -31,7 +31,7 @@ const Newsletter = () => {
 
   return (
     <motion.div
-      className={`space-y-6 py-8 px-6 rounded-xl bg-neutral-900/10 dark:bg-neutral-800/50 ${
+      className={`space-y-6 py-8 px-6 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 ${
         isMobile ? 'mx-4' : ''
       }`}
       initial={{ opacity: 0, y: 20 }}
@@ -81,7 +81,7 @@ const Newsletter = () => {
           size="large"
           loading={loading}
           onClick={handleSubscribe}
-          className={`!bg-blue-gradient h-[45px] ${isMobile ? 'w-full' : 'min-w-[120px]'}`}
+          className={`!bg-accent !text-accent-foreground !border-0 h-[45px] ${isMobile ? 'w-full' : 'min-w-[120px]'}`}
         >
           Subscribe
         </Button>

@@ -129,14 +129,14 @@ const ExperienceIndicator = ({ isMobile }: ExperienceIndicatorProps) => {
               transition={{ delay: index * 0.2 }}
             >
               <motion.div
-                className="bg-neutral-900/10 dark:bg-neutral-800/30 p-6 rounded-xl space-y-3 relative"
+                className="bg-neutral-50 dark:bg-neutral-800/30 p-6 rounded-xl space-y-3 relative"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
                 {/* Year and Icon */}
                 <div className="flex items-center gap-3 mb-2">
                   <motion.div
-                    className="h-8 w-8 rounded-full bg-neutral-900/20 dark:bg-neutral-800/50 
+                    className="h-8 w-8 rounded-full bg-neutral-100 dark:bg-neutral-800/50 
                              flex items-center justify-center border-2 border-neutral-800/50"
                     whileHover={{ scale: 1.1 }}
                   >

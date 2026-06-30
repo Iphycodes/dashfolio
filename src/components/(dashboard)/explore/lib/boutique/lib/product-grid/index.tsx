@@ -76,7 +76,7 @@ const ProductGrid = ({ category, isMobile, isTablet }: ProductGridProps) => {
           transition={{ duration: 0.5, delay: index * 0.1 }}
         >
           <motion.div
-            className="group relative rounded-xl border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 overflow-hidden"
+            className="group relative rounded-xl border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 overflow-hidden"
             onHoverStart={() => setHoveredId(product.id)}
             onHoverEnd={() => setHoveredId(null)}
             whileHover={{ y: -5 }}

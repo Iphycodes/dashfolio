@@ -40,7 +40,7 @@ const CourseCard = ({ course, index, isMobile }: CourseCardProps) => {
       className="group"
     >
       <motion.div
-        className="rounded-xl border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 overflow-hidden"
+        className="rounded-xl border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 overflow-hidden"
         whileHover={{ y: -5 }}
       >
         {/* Thumbnail */}

@@ -49,13 +49,13 @@ const FeaturedPosts = ({ posts, isMobile, isTablet }: FeaturedPostsProps) => {
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrev}
-            className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+            className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
           >
             <i className="ri-arrow-left-s-line text-xl" />
           </button>
           <button
             onClick={handleNext}
-            className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+            className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
           >
             <i className="ri-arrow-right-s-line text-xl" />
           </button>
@@ -173,7 +173,7 @@ const FeaturedPosts = ({ posts, isMobile, isTablet }: FeaturedPostsProps) => {
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
                 ? 'w-6 bg-blue'
-                : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
+                : 'w-1.5 bg-neutral-100 dark:bg-neutral-800/50'
             }`}
           />
         ))}

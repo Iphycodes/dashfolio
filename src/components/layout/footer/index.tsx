@@ -20,7 +20,6 @@ const footerLinks = [
   {
     title: 'Resources',
     links: [
-      { name: 'Blog', href: '/blog' },
       { name: 'Stacks', href: '/stacks' },
       { name: 'Experience', href: '/experience' },
     ],

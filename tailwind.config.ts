@@ -14,6 +14,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         // sans: ['Montserrat', 'sans-serif'],
+        display: ['Anton', 'sans-serif'],
       },
       boxShadow: {
         minimal: '0 0px 12px 2px rgba(0, 0, 0, 0.05)',
@@ -23,7 +24,7 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'blue-gradient':
-          'linear-gradient(32deg, rgba(30,136,229,1) 33%, rgba(1,171,255,1) 74%, rgba(0,212,255,1) 94%)',
+          'linear-gradient(135deg, #171717 0%, #2e2e2e 60%, #404040 100%)',
       },
       colors: {
         neutral: {
@@ -34,8 +35,14 @@ const config: Config = {
           dark: '#1C1C1C',
         },
         transparent: 'transparent',
-        blue: '#1e88e5',
-        sky: 'rgba(30, 136, 229, 0.3)',
+        // Lime accent. `blue` is theme-aware (readable text/borders); `accent` is the
+        // fixed bright lime (#c5fa70) for solid fills — always pair with dark text.
+        blue: 'hsl(var(--brand) / <alpha-value>)',
+        sky: 'hsl(var(--brand) / 0.12)',
+        accent: {
+          DEFAULT: '#c5fa70',
+          foreground: '#111111',
+        },
         background: 'hsl(var(--background))',
         muted: {
           DEFAULT: 'hsl(var(--muted))',

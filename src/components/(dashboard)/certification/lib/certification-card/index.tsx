@@ -22,7 +22,6 @@ const CertificationCard = ({
   // credential,
   badges,
   logo,
-  color,
   onClick,
 }: CertificationCardProps) => {
   return (
@@ -35,7 +34,7 @@ const CertificationCard = ({
       onClick={onClick}
       className="group cursor-pointer"
     >
-      <div className="relative rounded-xl overflow-hidden bg-neutral-900/10 dark:bg-neutral-800/30 p-6 space-y-4">
+      <div className="relative rounded-xl overflow-hidden bg-neutral-50 dark:bg-neutral-800/30 p-6 space-y-4">
         <div className="flex justify-between items-start">
           <div className="relative h-12 w-12 rounded-xl overflow-hidden">
             <Image src={logo} alt={issuer} fill className="object-cover" />
@@ -52,8 +51,7 @@ const CertificationCard = ({
           {badges.map((badge) => (
             <span
               key={badge}
-              className="px-2 py-1 rounded-full text-xs bg-neutral-900/20 dark:bg-neutral-800/50"
-              style={{ color }}
+              className="px-2 py-1 rounded-full text-xs bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300"
             >
               {badge}
             </span>

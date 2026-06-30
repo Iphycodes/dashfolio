@@ -4,6 +4,7 @@ import { App, ConfigProvider } from 'antd';
 import { useTheme } from 'next-themes';
 import { theme as AntDTheme } from 'antd';
 import { AppProvider } from '@/app-context';
+import PageLoader from '@/_shared/components/page-loader';
 
 export interface LayoutProps {
   children: ReactElement | ReactElement[];
@@ -23,6 +24,12 @@ const BaseLayout = ({ children }: LayoutProps) => {
     <ConfigProvider
       theme={{
         algorithm: theme === 'dark' ? darkAlgorithm : defaultAlgorithm,
+        token: {
+          // Lime accent (#c5fa70) — dark text sits on the lime fills
+          colorPrimary: '#c5fa70',
+          colorInfo: '#c5fa70',
+          colorTextLightSolid: '#111111',
+        },
         components: {
           Input: {
             colorBgContainerDisabled: 'transparent',
@@ -32,7 +39,7 @@ const BaseLayout = ({ children }: LayoutProps) => {
       }}
     >
       <AppProvider>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<PageLoader fullScreen />}>
           <App>{children}</App>
         </Suspense>
       </AppProvider>

@@ -42,7 +42,7 @@ const TechPassion = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 overflow-hidden"
+      className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden"
     >
       <div className="grid md:grid-cols-5 gap-8 p-6">
         <div className="md:col-span-3 space-y-8">
@@ -71,10 +71,10 @@ const TechPassion = () => {
           <Contribution />
 
           <motion.div
-            className="flex items-center justify-center gap-4 p-6 rounded-xl bg-neutral-900/20 dark:bg-neutral-800/30"
+            className="flex items-center justify-center gap-4 p-6 rounded-xl bg-white dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-700/50"
             whileHover={{ scale: 1.02 }}
           >
-            <HuobiToken variant="Bulk" size={24} className="text-green-500" />
+            <HuobiToken variant="Bulk" size={24} className="text-neutral-900 dark:text-white" />
             <div className="text-center">
               <h3 className="text-xl font-semibold">7+</h3>
               <p className="text-sm text-muted-foreground">Projects this year</p>

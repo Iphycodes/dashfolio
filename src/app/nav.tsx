@@ -9,7 +9,6 @@ export type Nav = {
 };
 
 const menuNavItem: NavItem[] = [
-  { key: 'home', label: 'Home', icon: <i className="ri-home-4-line"></i> },
   { key: 'explore', label: 'Explore', icon: <i className="ri-compass-3-line"></i> },
   { key: 'about', label: 'About', icon: <i className="ri-user-line"></i> },
   { key: 'projects', label: 'Projects', icon: <i className="ri-task-line"></i> },
@@ -25,9 +24,9 @@ const menuNavItem: NavItem[] = [
 const resourcesNavItems: NavItem[] = [
   // { key: 'feeds', label: 'Feeds', icon: <i className="ri-layout-4-line"></i> },
   // { key: 'boutique', label: 'Boutique', icon: <i className="ri-shopping-cart-line"></i> },
-  { key: 'blog', label: 'Blog', icon: <i className="ri-message-3-line"></i> },
   // { key: 'courses', label: 'Courses', icon: <i className="ri-graduation-cap-line"></i> },
   { key: 'services', label: 'Services', icon: <i className="ri-service-line"></i> },
+  { key: 'contact', label: 'Contact', icon: <i className="ri-mail-line"></i> },
 ];
 
 const connectNavItems: NavItem[] = [

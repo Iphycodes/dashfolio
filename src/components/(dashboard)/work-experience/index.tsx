@@ -87,7 +87,7 @@ const WorkExperience = () => {
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/20 dark:bg-neutral-800/30"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/30"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
@@ -131,7 +131,7 @@ const WorkExperience = () => {
       >
         <p className="text-muted-foreground">Interested in working together? Let's connect!</p>
         <motion.button
-          className="px-6 py-3 rounded-full bg-blue text-white hover:bg-blue-600 transition-colors"
+          className="px-6 py-3 rounded-full bg-blue text-background hover:opacity-90 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

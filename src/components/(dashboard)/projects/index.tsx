@@ -125,7 +125,7 @@ const Projects = () => {
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/20 dark:bg-neutral-800/30"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/30"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
@@ -154,7 +154,7 @@ const Projects = () => {
 
       {/* Project Filters */}
       <div className="flex justify-center">
-        <div className="inline-flex items-center gap-2 p-1 bg-neutral-900/10 dark:bg-neutral-800/30 rounded-full">
+        <div className="inline-flex items-center gap-2 p-1 bg-neutral-50 dark:bg-neutral-800/30 rounded-full">
           {['all', 'web', 'mobile', 'design'].map((filter) => (
             <motion.button
               key={filter}
@@ -162,7 +162,7 @@ const Projects = () => {
               className={`px-4 py-2 rounded-full text-sm transition-all ${
                 activeFilter === filter
                   ? 'bg-white text-black'
-                  : 'hover:bg-neutral-900/10 dark:hover:bg-neutral-800/50'
+                  : 'hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
