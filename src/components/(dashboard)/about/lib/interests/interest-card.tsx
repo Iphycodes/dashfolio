@@ -18,7 +18,6 @@ const InterestCard = ({
   title,
   description,
   icon: Icon,
-  color,
   index,
   isMobile,
 }: InterestCardProps) => {
@@ -32,33 +31,21 @@ const InterestCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="group relative rounded-xl bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-all duration-300 overflow-hidden"
+      className="group relative rounded-xl bg-white dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-700/50 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 transition-all duration-300 overflow-hidden"
     >
       <div className="p-5 space-y-4">
         {/* Icon and Title */}
         <div className="flex items-start gap-4">
           <motion.div
-            className="h-12 w-12 rounded-xl flex items-center justify-center"
-            style={{ backgroundColor: `${color}20` }}
-            animate={{
-              scale: isHovered ? 1.1 : 1,
-              backgroundColor: isHovered ? `${color}30` : `${color}20`,
-            }}
+            className="h-12 w-12 rounded-xl flex items-center justify-center bg-neutral-100 dark:bg-neutral-800"
+            animate={{ scale: isHovered ? 1.1 : 1 }}
             transition={{ duration: 0.3 }}
           >
-            <Icon variant={isHovered ? 'Bulk' : 'Linear'} size={24} color={color} />
+            <Icon variant={isHovered ? 'Bulk' : 'Linear'} size={24} color="#737373" />
           </motion.div>
 
           <div className="space-y-1 flex-1">
-            <motion.h3
-              className={`font-medium ${isMobile ? 'text-base' : 'text-lg'}`}
-              animate={{
-                color: isHovered ? color : 'currentColor',
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {title}
-            </motion.h3>
+            <h3 className={`font-medium ${isMobile ? 'text-base' : 'text-lg'}`}>{title}</h3>
           </div>
         </div>
 
@@ -74,7 +61,9 @@ const InterestCard = ({
       <motion.div
         className="absolute inset-0 pointer-events-none"
         animate={{
-          boxShadow: isHovered ? `inset 0 0 0 2px ${color}40` : 'inset 0 0 0 0 transparent',
+          boxShadow: isHovered
+            ? 'inset 0 0 0 1px rgba(120,120,120,0.4)'
+            : 'inset 0 0 0 0 transparent',
         }}
         transition={{ duration: 0.3 }}
       />

@@ -40,7 +40,7 @@ const EducationCard = ({
       {/* Timeline dot */}
 
       <div className="flex gap-5 items-start w-full">
-        <div className=" h-[40px] w-[40px] rounded-[50%] border-2 border-neutral-800/50 bg-neutral-900/10 dark:bg-neutral-800/50 flex items-center justify-center">
+        <div className=" h-[40px] w-[40px] rounded-[50%] border-2 border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center">
           <i className={`${icon} text-sm`} />
         </div>
 
@@ -67,7 +67,7 @@ const EducationCard = ({
             >
               {achievements.map((achievement, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <i className="ri-checkbox-circle-line text-green-500" />
+                  <i className="ri-checkbox-circle-line text-neutral-900 dark:text-white" />
                   <span className="text-muted-foreground">{achievement}</span>
                 </div>
               ))}

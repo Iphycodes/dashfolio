@@ -19,7 +19,7 @@ const Contribution = () => {
 
   return (
     <motion.div
-      className="p-6 rounded-xl bg-neutral-900/20 dark:bg-neutral-800/30 space-y-4"
+      className="p-6 rounded-xl bg-white dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-700/50 space-y-4"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -33,7 +33,7 @@ const Contribution = () => {
         {contributionData.map((data, index) => (
           <div key={data.day} className="flex flex-col items-center gap-2">
             <motion.div
-              className="w-2 bg-blue/20 rounded-full"
+              className="w-2 bg-neutral-300 dark:bg-neutral-700 rounded-full"
               style={{
                 height: `${(data.commits / maxCommits) * 100}%`,
               }}

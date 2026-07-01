@@ -70,7 +70,7 @@ const Stacks = () => {
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/20 dark:bg-neutral-800/30 ${
+          className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/30 ${
             isMobile ? 'text-xs' : 'text-sm'
           }`}
           initial={{ scale: 0.9 }}

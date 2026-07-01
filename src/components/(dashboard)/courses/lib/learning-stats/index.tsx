@@ -43,7 +43,7 @@ const stats = [
 const LearningStats = ({ isMobile }: LearningStatsProps) => {
   return (
     <motion.div
-      className="rounded-xl border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 p-8"
+      className="rounded-xl border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 p-8"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -90,7 +90,7 @@ const StatCard = ({
       onHoverEnd={() => setIsHovered(false)}
     >
       <motion.div
-        className="relative p-6 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30"
+        className="relative p-6 rounded-lg bg-neutral-50 dark:bg-neutral-800/30"
         whileHover={{ y: -5 }}
       >
         <div
@@ -143,7 +143,7 @@ const LearningTimeline = ({ isMobile }: { isMobile?: boolean }) => {
 
       <div className="relative">
         {/* Timeline Line */}
-        <div className="absolute left-0 top-0 bottom-0 w-px bg-neutral-800/20" />
+        <div className="absolute left-0 top-0 bottom-0 w-px bg-neutral-50 dark:bg-neutral-800/40" />
 
         <div className="space-y-8 pl-8">
           {timelineData.map((item, index) => (
@@ -156,7 +156,7 @@ const LearningTimeline = ({ isMobile }: { isMobile?: boolean }) => {
               className="relative"
             >
               {/* Timeline Dot */}
-              <div className="absolute left-[-8px] top-[6px] w-[15px] h-[15px] rounded-full border-2 border-neutral-800/20 bg-neutral-900/10 dark:bg-neutral-800/30" />
+              <div className="absolute left-[-8px] top-[6px] w-[15px] h-[15px] rounded-full border-2 border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/30" />
 
               <div>
                 <div className="text-sm font-medium text-blue">{item.year}</div>

@@ -140,8 +140,8 @@ const ProcessTimeline = ({ isMobile }: ProcessTimelineProps) => {
               <motion.button
                 className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
                   activeStep === index
-                    ? 'bg-neutral-900/10 dark:bg-neutral-800/30'
-                    : 'hover:bg-neutral-900/5 dark:hover:bg-neutral-800/20'
+                    ? 'bg-neutral-50 dark:bg-neutral-800/30'
+                    : 'hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/20'
                 }`}
                 onClick={() => setActiveStep(index)}
                 whileHover={{ x: 10 }}

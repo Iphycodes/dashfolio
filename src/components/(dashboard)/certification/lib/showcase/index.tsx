@@ -11,7 +11,7 @@ const Showcase = () => (
     viewport={{ once: true }}
     className="relative h-full min-h-[300px] rounded-xl overflow-hidden"
   >
-    <div className="absolute inset-0 bg-gradient-to-br from-blue/20 to-purple-500/20" />
+    <div className="absolute inset-0 bg-neutral-100 dark:bg-neutral-900" />
     <div className="relative h-full p-6 flex items-center justify-center">
       <div className="text-center space-y-4">
         <Award size={48} variant="Bulk" className="text-yellow-500 mx-auto" />

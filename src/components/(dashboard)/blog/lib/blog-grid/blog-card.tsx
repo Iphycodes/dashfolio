@@ -23,7 +23,7 @@ const BlogCard = ({ post, index, isMobile }: BlogCardProps) => {
     >
       <Link href={`/blog/${post.id}`} className="text-black dark:text-white">
         <motion.div
-          className="group rounded-xl overflow-hidden border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 hover:border-neutral-800/40 transition-colors"
+          className="group rounded-xl overflow-hidden border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 hover:border-neutral-800/40 transition-colors"
           whileHover={{ y: -5 }}
         >
           {/* Image */}

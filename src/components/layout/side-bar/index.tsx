@@ -1,6 +1,5 @@
 'use client';
 
-import CustomThemeToggler from '@/_shared/components/custom-theme-toggler';
 import { appNav } from '@/app/nav';
 import { AppContext } from '@/app-context';
 import { Menu } from 'antd';
@@ -14,7 +13,7 @@ const Sidebar = () => {
   const pathname = usePathname();
   const urlPath = pathname?.split('/');
   const { push } = useRouter();
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const { toggleSider, setToggleSider } = useContext(AppContext);
   const isMobile = useMediaQuery(mediaSize.mobile);
 
@@ -159,11 +158,6 @@ const Sidebar = () => {
             className="bg-transparent border-r-0 !mb-10 !text-[12px] transition-all duration-500 ease-in-out"
           />
         </div>
-      </div>
-
-      {/* Theme toggle */}
-      <div className="fixed bottom-8 right-0 transform -rotate-90">
-        <CustomThemeToggler theme={theme} setTheme={setTheme} />
       </div>
     </div>
   );

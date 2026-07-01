@@ -51,7 +51,7 @@ const StatsOverview = ({ isMobile }: StatsOverviewProps) => {
           transition={{ duration: 0.5, delay: index * 0.1 }}
           className="relative group"
         >
-          <div className="rounded-xl border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 p-6 space-y-4 hover:border-neutral-800/40 transition-colors duration-300">
+          <div className="rounded-xl border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 p-6 space-y-4 hover:border-neutral-800/40 transition-colors duration-300">
             {/* Icon */}
             <div className="p-3 rounded-lg w-fit" style={{ backgroundColor: `${stat.color}20` }}>
               <stat.icon size={24} variant="Bulk" color={stat.color} />

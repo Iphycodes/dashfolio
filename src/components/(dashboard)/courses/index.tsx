@@ -70,7 +70,7 @@ const Courses = () => {
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-900/20 dark:bg-neutral-800/30"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-100 dark:bg-neutral-800/30"
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2 }}
@@ -121,8 +121,8 @@ const Courses = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
       >
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neutral-900/10 dark:bg-neutral-800/30 mb-4">
-          <Teacher variant="Bulk" className="text-green-500" size={24} />
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neutral-50 dark:bg-neutral-800/30 mb-4">
+          <Teacher variant="Bulk" className="text-neutral-900 dark:text-white" size={24} />
         </div>
         <h2 className={`font-semibold ${isMobile ? 'text-xl' : 'text-2xl'}`}>
           Want to Learn Together?
@@ -131,7 +131,7 @@ const Courses = () => {
           I'm always open to collaborating and sharing knowledge. Let's connect and learn together!
         </p>
         <motion.button
-          className="px-6 py-3 rounded-full bg-blue text-white hover:bg-blue-600 transition-colors"
+          className="px-6 py-3 rounded-full bg-blue text-background hover:opacity-90 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

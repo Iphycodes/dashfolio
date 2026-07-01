@@ -40,7 +40,7 @@ const StackCategory = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="rounded-xl border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 p-8 space-y-8 hover:border-neutral-800/40 transition-all duration-300"
+      className="rounded-xl border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 p-8 space-y-8 hover:border-neutral-800/40 transition-all duration-300"
     >
       {/* Header */}
       <div className="space-y-4">
@@ -96,7 +96,7 @@ const StackCategory = ({
               </span>
             </div>
 
-            <div className="h-1.5 bg-neutral-900/10 dark:bg-neutral-800/30 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-neutral-50 dark:bg-neutral-800/30 rounded-full overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
                 style={{ backgroundColor: color }}

@@ -76,7 +76,7 @@ const TechCarousel = ({ isMobile }: TechCarouselProps) => {
         {[...techs, ...techs].map((tech, index) => (
           <motion.div
             key={`${tech.name}-${index}`}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 
               ${isMobile ? 'min-w-[120px]' : 'min-w-[150px]'}`}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}

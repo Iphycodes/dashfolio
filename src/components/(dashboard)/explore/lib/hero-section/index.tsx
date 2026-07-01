@@ -36,17 +36,13 @@ const HeroSection = () => {
           {isMobile ? (
             <>
               Hello, I&apos;m{' '}
-              <span className="bg-gradient-to-r from-blue to-cyan-400 bg-clip-text text-transparent">
-                Ifeanyi Emmanuel
-              </span>
+              <span className="text-neutral-900 dark:text-white">Ifeanyi Emmanuel</span>
             </>
           ) : (
             <>
               Hello, <br />
               I&apos;m{' '}
-              <span className="bg-gradient-to-r from-blue via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Ifeanyi Emmanuel
-              </span>
+              <span className="text-neutral-900 dark:text-white">Ifeanyi Emmanuel</span>
             </>
           )}
         </motion.h1>
@@ -78,7 +74,7 @@ const HeroSection = () => {
         <Button
           type="primary"
           size="large"
-          className={`!bg-blue-gradient !h-12 !rounded-full !font-medium hover:!opacity-90 !transition-opacity !border-0 ${isMobile ? 'w-full' : 'min-w-[140px]'}`}
+          className={`!bg-accent !text-accent-foreground !h-12 !rounded-full !font-medium hover:!opacity-90 !transition-opacity !border-0 ${isMobile ? 'w-full' : 'min-w-[140px]'}`}
           onClick={() => push('/about')}
         >
           About Me

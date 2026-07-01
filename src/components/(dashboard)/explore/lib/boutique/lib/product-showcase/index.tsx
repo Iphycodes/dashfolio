@@ -69,13 +69,13 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
         <div className="flex items-center gap-2">
           <button
             onClick={handlePrev}
-            className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+            className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
           >
             <i className="ri-arrow-left-s-line text-xl" />
           </button>
           <button
             onClick={handleNext}
-            className="p-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+            className="p-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
           >
             <i className="ri-arrow-right-s-line text-xl" />
           </button>
@@ -123,7 +123,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
               <div className="space-y-2">
                 {products[currentIndex].features.map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-2 text-sm">
-                    <i className="ri-check-line text-green-500" />
+                    <i className="ri-check-line text-neutral-900 dark:text-white" />
                     <span>{feature}</span>
                   </div>
                 ))}
@@ -159,8 +159,8 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
                         key={size}
                         className={`px-3 py-1 rounded-lg text-sm transition-all duration-200 ${
                           selectedSize === size
-                            ? 'bg-blue text-white'
-                            : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
+                            ? 'bg-blue text-background'
+                            : 'bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50'
                         }`}
                         onClick={() => setSelectedSize(size)}
                       >
@@ -174,7 +174,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
               {/* Action Buttons */}
               <div className="flex gap-4">
                 <motion.button
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue text-white hover:bg-blue-600 transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-blue text-background hover:opacity-90 transition-colors"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -182,7 +182,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
                   <span>Add to Cart</span>
                 </motion.button>
                 <motion.button
-                  className="p-3 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+                  className="p-3 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -289,7 +289,7 @@ const ProductShowcase = ({ products, isMobile, isTablet }: ProductShowcaseProps)
             className={`h-1.5 rounded-full transition-all duration-300 ${
               index === currentIndex
                 ? 'w-6 bg-blue'
-                : 'w-1.5 bg-neutral-900/20 dark:bg-neutral-800/50'
+                : 'w-1.5 bg-neutral-100 dark:bg-neutral-800/50'
             }`}
           />
         ))}

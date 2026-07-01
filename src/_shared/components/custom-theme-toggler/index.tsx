@@ -23,12 +23,12 @@ const CustomThemeToggler = ({}: CustomThemeTogglerProps) => {
     <motion.div
       initial={false}
       animate={{ backgroundColor: currentTheme === 'dark' ? '#1e1e1e' : '#ffffff' }}
-      className="flex items-center gap-2 p-1 rounded-full shadow-lg border border-neutral-800"
+      className="flex items-center gap-1 p-1 rounded-full shadow-sm border border-neutral-200 dark:border-neutral-700"
     >
       <motion.button
         initial={false}
         animate={{
-          backgroundColor: currentTheme === 'light' ? '#1e88e5' : 'transparent',
+          backgroundColor: currentTheme === 'light' ? '#171717' : 'transparent',
         }}
         onClick={() => setTheme('light')}
         className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
@@ -47,11 +47,11 @@ const CustomThemeToggler = ({}: CustomThemeTogglerProps) => {
       <motion.button
         initial={false}
         animate={{
-          backgroundColor: currentTheme === 'dark' ? '#1e88e5' : 'transparent',
+          backgroundColor: currentTheme === 'dark' ? '#ffffff' : 'transparent',
         }}
         onClick={() => setTheme('dark')}
         className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-          currentTheme === 'dark' ? 'text-white' : 'text-neutral-500 hover:text-neutral-300'
+          currentTheme === 'dark' ? 'text-neutral-900' : 'text-neutral-500 hover:text-neutral-700'
         }`}
       >
         <motion.i

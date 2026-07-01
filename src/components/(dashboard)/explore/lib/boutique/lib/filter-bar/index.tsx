@@ -22,7 +22,7 @@ const FilterBar = ({ categories, activeCategory, setActiveCategory, isMobile }: 
         {/* Mobile Filter Button */}
         {isMobile && (
           <motion.button
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30"
             onClick={() => setShowMobileFilter(!showMobileFilter)}
             whileTap={{ scale: 0.95 }}
           >
@@ -51,8 +51,8 @@ const FilterBar = ({ categories, activeCategory, setActiveCategory, isMobile }: 
                 onClick={() => setActiveCategory(category)}
                 className={`px-4 py-2 rounded-lg text-sm transition-all duration-300 ${
                   activeCategory === category
-                    ? 'bg-blue text-white'
-                    : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
+                    ? 'bg-blue text-background'
+                    : 'bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -73,7 +73,7 @@ const FilterBar = ({ categories, activeCategory, setActiveCategory, isMobile }: 
                 <div className="flex items-center gap-2">
                   <span className="text-sm">Price:</span>
                   <div className="relative w-40">
-                    <div className="h-1 bg-neutral-900/10 dark:bg-neutral-800/30 rounded-full">
+                    <div className="h-1 bg-neutral-50 dark:bg-neutral-800/30 rounded-full">
                       <motion.div
                         className="absolute h-full bg-blue rounded-full"
                         style={{
@@ -105,7 +105,7 @@ const FilterBar = ({ categories, activeCategory, setActiveCategory, isMobile }: 
                 </div>
 
                 {/* Sort */}
-                <select className="px-3 py-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 text-sm border-0 outline-none">
+                <select className="px-3 py-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 text-sm border-0 outline-none">
                   <option value="newest">Newest</option>
                   <option value="price-asc">Price: Low to High</option>
                   <option value="price-desc">Price: High to Low</option>

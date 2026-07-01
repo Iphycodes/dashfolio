@@ -37,7 +37,7 @@ const PersonalInfo = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="rounded-xl dark:border border-neutral-800/50 bg-neutral-900/5 dark:bg-neutral-900/20 overflow-hidden"
+      className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden"
     >
       <div className={`grid ${isTablet ? 'grid-cols-1' : 'md:grid-cols-2'} gap-8`}>
         {/* Content Section */}

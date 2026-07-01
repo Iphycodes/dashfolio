@@ -37,7 +37,7 @@ const contactOptions = [
 
 const ContactCTA = ({ isMobile }: ContactCTAProps) => {
   return (
-    <div className="relative rounded-2xl border border-neutral-800/20 bg-neutral-900/5 dark:bg-neutral-800/10 overflow-hidden">
+    <div className="relative rounded-2xl border border-neutral-800/20 bg-neutral-50 dark:bg-neutral-800/10 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">

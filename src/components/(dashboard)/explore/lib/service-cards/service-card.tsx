@@ -24,7 +24,7 @@ const IconComponent = ({ type, variant }: { type: string; variant: 'Linear' | 'B
 
   switch (type) {
     case 'development':
-      return <Code {...props} color={variant === 'Bulk' ? '#1e88e5' : undefined} />;
+      return <Code {...props} color={variant === 'Bulk' ? '#737373' : undefined} />;
     case 'teaching':
       return <Teacher {...props} color={variant === 'Bulk' ? '#4caf50' : undefined} />;
     case 'javascript':
@@ -90,7 +90,7 @@ const ServiceCard = ({ title, description, iconType, items, action, href }: Serv
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              <i className="ri-check-line text-green-500 text-base" />
+              <i className="ri-check-line text-neutral-900 dark:text-white text-base" />
               <span>{item}</span>
             </motion.div>
           ))}

@@ -107,7 +107,7 @@ const Categories = ({ blogPosts }: CategoriesProps) => {
               onClick={() => {
                 updateCategoryParam(category?.name?.toLowerCase());
               }}
-              className="flex items-center cursor-pointer justify-between p-3 rounded-lg hover:bg-neutral-900/10 dark:hover:bg-neutral-800/30 transition-colors group"
+              className="flex items-center cursor-pointer justify-between p-3 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/30 transition-colors group"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -146,7 +146,7 @@ const Categories = ({ blogPosts }: CategoriesProps) => {
               onClick={() => {
                 updateCategoryParam(tag?.toLowerCase());
               }}
-              className="px-3 py-1 rounded-full bg-neutral-900/10 dark:bg-neutral-800/30 text-sm hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50 transition-colors"
+              className="px-3 py-1 rounded-full bg-neutral-50 dark:bg-neutral-800/30 text-sm hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50 transition-colors"
               //   onHoverStart={() => setHoveredTag(tag)}
               //   onHoverEnd={() => setHoveredTag(null)}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -173,7 +173,7 @@ const Categories = ({ blogPosts }: CategoriesProps) => {
             <motion.a
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="block p-4 rounded-lg hover:bg-neutral-900/10 dark:hover:bg-neutral-800/30 transition-colors"
+              className="block p-4 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/30 transition-colors"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}

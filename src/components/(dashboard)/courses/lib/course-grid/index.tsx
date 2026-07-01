@@ -82,8 +82,8 @@ const CourseGrid = ({ courses, isMobile, isTablet }: CourseGridProps) => {
               onClick={() => setActiveFilter(category)}
               className={`px-4 py-2 rounded-full text-sm transition-colors ${
                 activeFilter === category
-                  ? 'bg-blue text-white'
-                  : 'bg-neutral-900/10 dark:bg-neutral-800/30 hover:bg-neutral-900/20 dark:hover:bg-neutral-800/50'
+                  ? 'bg-blue text-background'
+                  : 'bg-neutral-50 dark:bg-neutral-800/30 hover:bg-neutral-100 dark:hover:bg-neutral-800/70 dark:hover:bg-neutral-800/50'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -97,7 +97,7 @@ const CourseGrid = ({ courses, isMobile, isTablet }: CourseGridProps) => {
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="px-4 py-2 rounded-lg bg-neutral-900/10 dark:bg-neutral-800/30 text-sm"
+          className="px-4 py-2 rounded-lg bg-neutral-50 dark:bg-neutral-800/30 text-sm"
         >
           <option value="progress">Sort by Progress</option>
           <option value="level">Sort by Level</option>
@@ -119,7 +119,7 @@ const CourseGrid = ({ courses, isMobile, isTablet }: CourseGridProps) => {
       {/* Empty State */}
       {filteredCourses.length === 0 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-12">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neutral-900/10 dark:bg-neutral-800/30 mb-4">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neutral-50 dark:bg-neutral-800/30 mb-4">
             <i className="ri-search-line text-xl" />
           </div>
           <h3 className="text-lg font-medium mb-2">No courses found</h3>
