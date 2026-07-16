@@ -65,7 +65,7 @@ const HomePage = () => {
   useEffect(() => {
     setMounted(true);
     const themeValue = localStorage.getItem('dashfolio-theme-key');
-    setTheme(themeValue ?? 'dark');
+    setTheme(themeValue ?? 'light');
   }, []);
 
   return (

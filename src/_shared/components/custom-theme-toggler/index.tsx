@@ -17,7 +17,7 @@ const CustomThemeToggler = ({}: CustomThemeTogglerProps) => {
   }, []);
 
   // Pre-render theme state
-  const currentTheme = mounted ? theme : 'dark'; // Since your default is dark
+  const currentTheme = mounted ? theme : 'light'; // Default theme is light
 
   return (
     <motion.div

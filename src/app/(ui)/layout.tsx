@@ -17,7 +17,7 @@ const BaseLayout = ({ children }: LayoutProps) => {
 
   useEffect(() => {
     const themeValue = localStorage.getItem('dashfolio-theme-key');
-    setTheme(themeValue ?? 'dark');
+    setTheme(themeValue ?? 'light');
   }, []);
 
   return (
