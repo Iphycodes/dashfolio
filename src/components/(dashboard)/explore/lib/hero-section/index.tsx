@@ -36,13 +36,13 @@ const HeroSection = () => {
           {isMobile ? (
             <>
               Hello, I&apos;m{' '}
-              <span className="text-neutral-900 dark:text-white">Ifeanyi Emmanuel</span>
+              <span className="text-blue">Ifeanyi Emmanuel</span>
             </>
           ) : (
             <>
               Hello, <br />
               I&apos;m{' '}
-              <span className="text-neutral-900 dark:text-white">Ifeanyi Emmanuel</span>
+              <span className="text-blue">Ifeanyi Emmanuel</span>
             </>
           )}
         </motion.h1>
@@ -52,7 +52,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          A Professional Software Engineer (Frontend Heavy)
+          Fullstack Developer
         </motion.h4>
         <motion.p
           className={`text-neutral-500 dark:text-neutral-400 leading-relaxed ${isMobile ? 'text-base' : 'text-lg'} max-w-2xl`}

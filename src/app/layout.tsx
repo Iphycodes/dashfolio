@@ -46,7 +46,7 @@ export default function RootLayout({
       <body className={''} suppressHydrationWarning={true}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           // forcedTheme='dark'
           enableSystem={false}
           storageKey="dashfolio-theme-key"
