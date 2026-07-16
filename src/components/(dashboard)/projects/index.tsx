@@ -56,7 +56,7 @@ const projects = [
     description: 'Online MarketPlace for Nigeria creators',
     category: 'Web Application',
     technologies: ['React', 'Next.js', 'Typescript'],
-    image: '/asset/imgs/wavesocial-screenshot.png',
+    image: '/asset/imgs/kraft-screenshot.png',
     link: 'https://kraft.ng/',
     github: '#',
     featured: true,
