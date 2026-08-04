@@ -82,10 +82,28 @@ const HomePage = () => {
         >
           <motion.div
             className="flex items-center gap-3 cursor-pointer"
+            onClick={() => router.push('/')}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="font-bold text-xl tracking-tight">Ify Dev</span>
+            {/* Light theme logo */}
+            <Image
+              src="/asset/logos/IfyDev-logo-light.PNG"
+              alt="Ify Dev"
+              width={120}
+              height={80}
+              priority
+              className="h-8 w-auto object-contain dark:hidden"
+            />
+            {/* Dark theme logo */}
+            <Image
+              src="/asset/logos/IfyDev-logo-dark.png"
+              alt="Ify Dev"
+              width={120}
+              height={80}
+              priority
+              className="hidden h-8 w-auto object-contain dark:block"
+            />
           </motion.div>
 
           {!isMobile && (
@@ -134,7 +152,7 @@ const HomePage = () => {
         ref={heroRef}
         style={{ opacity: heroOpacity, scale: heroScale }}
         className={`relative min-h-screen flex items-center overflow-hidden bg-neutral-100 dark:bg-transparent ${
-          isMobile ? 'pt-24 pb-12 px-5' : 'pt-28 px-8'
+          isMobile ? 'pt-24 pb-12 px-5' : 'pt-32 px-8'
         }`}
       >
         {/* Lime glow — sits behind the text and image */}
@@ -169,7 +187,7 @@ const HomePage = () => {
               initial="hidden"
               animate="visible"
             >
-              {['Fullstack', 'Developer'].map((line) => (
+              {['Software', 'Developer'].map((line) => (
                 <motion.span
                   key={line}
                   className="block font-display"
